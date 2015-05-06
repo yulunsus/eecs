@@ -2,8 +2,9 @@ Rails.application.routes.draw do
  devise_for :users , controllers:{ sessions: "users/sessions" , :registrations => "users/registrations"}
  resource :users
  resources :courses do
-    resources :feedbacks, :controller => 'course_feedbacks'
+	 resources :feedbacks, :controller => 'course_feedbacks'
  end
+ 
  root to:"users#index"
  match ':controller(/:action(/:id(.:format)))', :via => :all
  # The priority is based upon order of creation: first created -> highest priority.

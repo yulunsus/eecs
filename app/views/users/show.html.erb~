@@ -1,8 +1,0 @@
-<h1> user name <%=@user.username %></h1>
-<p>class_year <%= @user.class_year%> </p>
-<p>first_name <%= @user.first_name%> </p>
-<p>last_name <%= @user.last_name%> </p>
-<p>nick_name <%= @user.nick_name%> </p>
-<p>email <%= @user.email%> </p>
-
-<%= link_to :back_to_home ,root_url%>

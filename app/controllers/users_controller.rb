@@ -5,21 +5,15 @@ class UsersController < ApplicationController
 		@users = User.all 
 	
 	end
-	def show 
-	  
-          if params[:id]
-	  	@user =User.find(params[:id])
-          else 
-                @user = current_user
-          end
+	def show
+	 if params[:id]
+	   @user =User.find(params[:id])
+	 else
+		 @user = current_user
+	 end
 	end
-
-        #def show
-	#  @user =User.find(params[:id])
-	#end
-
-        def hero
-                @users=User.all.order("rank ASC")
-        end
+  def hero
+    @users=User.all.order("rank DESC")
+	end
 
 end
