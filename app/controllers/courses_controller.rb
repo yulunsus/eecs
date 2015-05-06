@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_course, :only => [ :show, :edit, :update, :destroy]
   def index
-    @courses = Course.all
+    @courses = Course.all.order('grade')
   end
 
   def new
@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
   
   def show
     #@course = Course.find(params[:id])
-    grade_selector=['','freshman','sophomore','junior and senior','graduate']
+    grade_selector=['','freshman','sophomore','junior and senior','graduate','foreign language','general knowledge']
     @grade = grade_selector[@course.grade]
   end
   

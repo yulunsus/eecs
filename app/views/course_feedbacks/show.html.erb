@@ -3,5 +3,5 @@
 <p>Year: <%= @feedback.year %> </p>
 <p>Content: <%= simple_format(@feedback.content) %> </p>
 <p>Rating: <%= @feedback.rating %> </p>
-<p>Author: <%= @author.last_name %> <%= @author.first_name %></p>
+<p>Author: <%= @feedback.user.last_name %> <%= @feedback.user.first_name %></p>
 <%= link_to 'back to feedback list', course_feedbacks_url(@course) %>

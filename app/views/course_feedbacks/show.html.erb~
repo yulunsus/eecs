@@ -4,4 +4,4 @@
 <p>Content: <%= simple_format(@feedback.content) %> </p>
 <p>Rating: <%= @feedback.rating %> </p>
 <p>Author: <%= @author.last_name %> <%= @author.first_name %></p>
-<%= link_to 'back to course', course_feedbacks_url(@course) %>
+<%= link_to 'back to feedback list', course_feedbacks_url(@course) %>

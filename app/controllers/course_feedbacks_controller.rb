@@ -1,4 +1,5 @@
 class CourseFeedbacksController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_course
   before_action :find_user
 
@@ -8,8 +9,6 @@ class CourseFeedbacksController < ApplicationController
 
   def show
     @feedback = @course.feedbacks.find(params[:id])
-    #@author = User.find(@feedback.user_id)
-    @author=@feedback.user
   end
   
   def new

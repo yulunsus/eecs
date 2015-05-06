@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
   
   def show
     #@course = Course.find(params[:id])
-    grade_selector=['','freshman','sophomore','junior and senior','graduate']
+    grade_selector=['','freshman','sophomore','junior and senior','graduate','foreign language','general knowledge']
     @grade = grade_selector[@course.grade]
   end
   
@@ -41,9 +41,15 @@ class CoursesController < ApplicationController
   
   def update
     #@course = Course.find(params[:id])
-    @course.update(course_params)
+    #@course.update(course_params)
     
-    redirect_to courses_url(@course)
+    if @course.update(course_params)
+      redirect_to courses_url(@course)
+    else
+      render :action => :edit
+    end
+   
+    #redirect_to courses_url(@course)
   end
   
   private

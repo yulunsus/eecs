@@ -1,4 +1,4 @@
-<%= form_for @course, :url => { :controller => 'courses', :action => 'update',:id => @course } do |f| %>
+<%= form_for @course, :url => course_path(@course), :method => :patch do |f| %>
     <p><%= f.label :name, "Name" %>
     <%= f.text_field :name %></p>
 
