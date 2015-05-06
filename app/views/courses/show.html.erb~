@@ -1,0 +1,6 @@
+<li>Name:        <%= @course.name %></li>
+<li>Instructor:  <%= @course.instructor %></li>
+<li>Grade:       <%= @grade %></li>
+<li>Description: <%= simple_format(@course.description) %></li>
+<%= link_to 'feedbacks', course_feedbacks_path(@course) %>
+<li><%= link_to 'Back to index', courses_path %></li>

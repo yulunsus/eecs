@@ -16,7 +16,7 @@ hello~ this is home page!
 
 <% @users.each do |user|%>
 	<%= user.username%> <br />
-<% end%>
+
 <li><%= link_to 'Heros', :controller => 'users', :action => 'hero' %></li>
 
-
+<% end%>

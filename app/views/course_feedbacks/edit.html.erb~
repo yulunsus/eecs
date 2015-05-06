@@ -1,0 +1,24 @@
+<%= form_for @feedback, :url => course_feedbacks_path(@course,@feedback),:html => {:method => :patch} do |f| %>
+    
+    <div class = "field">
+		<%= f.label :year%>
+		<%= f.select (:year),	
+	  	 options_for_select((80..120),@feedback.year)
+		%>
+    </div>
+    <div class = "field">
+		<%= f.label :rating%>
+		<%= f.select (:rating),	
+	  	 options_for_select((1..10),@feedback.rating)
+		%>
+    </div>
+
+    
+    <p><%= f.label :content, "content" %>
+    <%= f.text_area :content %></p>
+
+    <%= f.submit "Create" %>
+<% end %>
+
+<p><%= link_to 'Back to index', :controller => 'courses', :action => 'show' %></p>
+

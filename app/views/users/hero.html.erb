@@ -1,0 +1,11 @@
+<ul>
+<% @users.each do |user| %>
+  <li>
+      <%= user.rank %> 
+      <%=user.last_name%>
+      <%=user.first_name%>
+  
+    <%= link_to 'Show', :controller => 'users', :action => 'show',:id => user %>
+  </li>
+<% end %>
+</ul>

@@ -1,0 +1,16 @@
+<ul>
+<% @courses.each do |course| %>
+  <li>
+    <font size="6">
+      <%= course.name %> 
+    </font>
+    <%=course.instructor%>
+  
+    <%= link_to 'Show', course_path(course) %>
+    <%= link_to 'Edit', edit_course_path(course)%>
+    <%= link_to 'Delete',course_path(course), :method => :delete %>
+  </li>
+<% end %>
+</ul>
+<li><%= link_to 'New Course', new_course_path%></li>
+<li><%= link_to 'User', :controller => 'users', :action => 'show' %></li>

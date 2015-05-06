@@ -11,7 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505111647) do
+ActiveRecord::Schema.define(version: 20150505154438) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "instructor"
+    t.integer  "grade"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.integer  "rating"
+    t.integer  "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pastexams", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.string   "file"
+    t.integer  "exam_type"
+    t.boolean  "has_answer"
+    t.integer  "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                            default: "", null: false

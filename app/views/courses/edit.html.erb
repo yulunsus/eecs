@@ -1,0 +1,21 @@
+<%= form_for @course, :url => course_path(@course), :method => :patch do |f| %>
+    <p><%= f.label :name, "Name" %>
+    <%= f.text_field :name %></p>
+
+    <p><%= f.label :instructor, "Instructor" %>
+    <%= f.text_field :instructor %></p>
+
+    <div class = "field">
+		<%= f.label :grade%>
+		<%= f.select (:grade),	
+	  	 options_for_select({'freshman'=> 1,'sophomore'=> 2,'junior and senior'=> 3,'graduate'=> 4} ,@course.grade)
+		%>
+    </div>
+
+    <p><%= f.label :description, "Description" %>
+    <%= f.text_area :description %></p>
+
+    <%= f.submit "Update" %>
+<% end %>
+
+<p><%= link_to 'Back to index', :controller => 'courses', :action => 'index' %></p>
