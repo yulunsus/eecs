@@ -1,4 +1,4 @@
-<%= form_for @feedback, :url => course_feedbacks_path(@course,@feedback),:html => {:method => :patch} do |f| %>
+<%= form_for @feedback, :url => course_feedback_path(@course,@feedback),:html => {:method => :patch} do |f| %>
     
     <div class = "field">
 		<%= f.label :year%>
@@ -17,8 +17,8 @@
     <p><%= f.label :content, "content" %>
     <%= f.text_area :content %></p>
 
-    <%= f.submit "Create" %>
+    <%= f.submit "Update" %>
 <% end %>
 
-<p><%= link_to 'Back to index', :controller => 'courses', :action => 'show' %></p>
+<p><%= link_to 'Back to index', course_feedbacks_path(@course) %></p>
 
