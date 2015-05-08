@@ -1,13 +1,13 @@
 <ul>
 
 <% @feedbacks.each do |feedback| %>
-        <% if @user.rank >= 3 || @user == feedback.user %>
+        <% if @user.rank >= @adminparam.point_need_feedback || @user == feedback.user || current_user.is_admin==true%>
 	<li>
 	  <%= feedback.year %>
           <%= feedback.user.last_name %>
           <%= feedback.user.first_name %>
 	  <%= link_to 'show', course_feedback_path(@course, feedback) %>
-          <% if @user == feedback.user %>
+          <% if @user == feedback.user || current_user.is_admin==true%>
 	    <%= link_to 'edit', edit_course_feedback_path(@course, feedback) %>
 	    <%= link_to 'destroy', course_feedback_path(@course, feedback),
 	                              :method => :delete %>

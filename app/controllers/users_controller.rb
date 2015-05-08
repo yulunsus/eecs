@@ -2,18 +2,19 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@users = User.all 
-	
+		@users = User.all
 	end
 	def show
 	 if params[:id]
-	   @user =User.find(params[:id])
-	 else
-		 @user = current_user
-	 end
+	   @user_show = User.find(params[:id])
+         end
+	 #else
+           @user = current_user
+	 #end
 	end
-  def hero
-    @users=User.all.order("rank DESC")
+ 	def hero
+   		@users=User.all.order("rank DESC")
+		@user = current_user
 	end
 
 end

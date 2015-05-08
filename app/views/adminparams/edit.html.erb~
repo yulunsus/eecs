@@ -1,0 +1,20 @@
+<%= form_for @adminparam, :url => adminparams_path(@adminparam), :method=> :patch do |f| %>
+    <p>
+    <%= f.label :point_get_feedback, "Point get when uploading a feedback" %>
+    <%= f.number_field :point_get_feedback %>
+    </p>
+    <p>
+    <%= f.label :point_get_pastexam, "Point get when uploading a pastexam" %>
+    <%= f.number_field :point_get_pastexam %>
+    </p>
+    <p>
+    <%= f.label :point_need_feedback, "Point needed when browsing feedbacks" %>
+    <%= f.number_field :point_need_feedback %>
+    </p>
+    <p>
+    <%= f.label :point_need_pastexam, "Point needed when downloading a pastexam" %>
+    <%= f.number_field :point_need_pastexam %>
+    </p>
+    <%= f.submit "Update" %>
+<% end %>
+<%= link_to "back" , :controller=>'adminparams', :action=> 'show', :id=> @adminparam%>

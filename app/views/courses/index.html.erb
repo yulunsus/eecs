@@ -8,7 +8,9 @@
   
     <%= link_to 'Show', course_path(course) %>
     <%= link_to 'Edit', edit_course_path(course)%>
-    <%= link_to 'Delete',course_path(course), :method => :delete %>
+    <% if @user.is_admin == true %>
+      <%= link_to 'Delete',course_path(course), :method => :delete %>
+    <%end %>
   </li>
 <% end %>
 </ul>

@@ -1,0 +1,7 @@
+<% if current_user.is_admin == true %>
+<li>Point get when uploading a feedback:        <%= @adminparam.point_get_feedback %></li>
+<li>Point get when uploading a pastexam:        <%= @adminparam.point_get_pastexam %></li>
+<li>Point needed when browsing feedbacks:        <%= @adminparam.point_need_feedback %></li>
+<li>Point needed when downloading a pastexam:        <%= @adminparam.point_need_pastexam %></li>
+<%= link_to "edit" , edit_adminparams_path(@adminparam)%>
+<% end %>

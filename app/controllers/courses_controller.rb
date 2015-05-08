@@ -3,10 +3,9 @@ class CoursesController < ApplicationController
   before_action :set_course, :only => [ :show, :edit, :update, :destroy]
   before_action :set_user 
 	
-	def index
+  def index
     @courses = Course.all.order('grade')
-	
-	end
+  end
 
   def new
     @course = Course.new
@@ -64,7 +63,7 @@ class CoursesController < ApplicationController
   def set_course
     @course = Course.find(params[:id])
   end
-	def set_user
-		@user = current_user 
-	end
+  def set_user
+    @user = current_user 
+  end
 end

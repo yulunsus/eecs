@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  point_get_feedback: 1
+  point_get_pastexam: 1
+  point_need_feedback: 1
+
+two:
+  point_get_feedback: 1
+  point_get_pastexam: 1
+  point_need_feedback: 1

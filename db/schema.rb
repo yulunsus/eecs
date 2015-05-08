@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505154438) do
+ActiveRecord::Schema.define(version: 20150507134243) do
+
+  create_table "adminparams", force: :cascade do |t|
+    t.integer  "point_get_feedback"
+    t.integer  "point_get_pastexam"
+    t.integer  "point_need_feedback"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "point_need_pastexam"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"

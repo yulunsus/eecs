@@ -1,8 +1,14 @@
 
 <%= link_to "Home" , root_url%>
 <% if user_signed_in?%>
-	<%= link_to "#{@user.username}" , users_path %>
+	<%= link_to "Heros", :controller=> 'users', :action => 'hero' %>
+	<%= link_to "#{current_user.username}" , users_path %>
+	<%if @user.is_admin == true%>
+		Administractor
+		<%= link_to "parameters", :controller=> 'adminparams', :action => 'show' %>
+	<% end %>
 	<%= link_to "Sign out" , destroy_user_session_path ,:method => :delete %>
 <% else %>
 	<%= link_to "Sign in" , new_user_session_path %>
 <%end%>
+
