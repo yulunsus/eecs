@@ -17,7 +17,19 @@
     <p><%= f.label :content, "content" %>
     <%= f.text_area :content %></p>
 
+    <p><%= f.label :lecture_way, "lecture way" %>
+    <%= f.text_area :lecture_way %></p>
+
+    <p><%= f.label :test_homework, "test and homework" %>
+    <%= f.text_area :test_homework %></p>
+    
+    <p><%= f.label :partitioning, "partitioning" %>
+    <%= f.text_area :partitioning %></p>
+
+    <p><%= f.label :other, "other" %>
+    <%= f.text_area :other %></p>
     <%= f.submit "Create" %>
+
 <% end %>
 
 <p><%= link_to 'Back to index', :controller => 'courses', :action => 'index' %></p>

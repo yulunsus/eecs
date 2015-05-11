@@ -2,6 +2,10 @@
 <p>Instructor: <%= @course.instructor %> </p>
 <p>Year: <%= @feedback.year %> </p>
 <p>Content: <%= simple_format(@feedback.content) %> </p>
+<p>Lecture way: <%= simple_format(@feedback.lecture_way) %> </p>
+<p>Test and homework: <%= simple_format(@feedback.test_homework) %> </p>
+<p>Partitioning: <%= simple_format(@feedback.partitioning) %> </p>
+<p>Others: <%= simple_format(@feedback.other) %> </p>
 <p>Rating: <%= @feedback.rating %> </p>
 <p>Author: <%= @feedback.user.last_name %> <%= @feedback.user.first_name %></p>
 <%= link_to 'back to feedback list', course_feedbacks_url(@course) %>

@@ -3,10 +3,11 @@
 <% if user_signed_in?%>
 	<%= link_to "Heros", :controller=> 'users', :action => 'hero' %>
 	<%= link_to "#{current_user.username}" , users_path %>
-	<%if @user.is_admin == true%>
+	<%if @user.is_admin == 1%>
 		Administractor
-		<%= link_to "parameters", :controller=> 'adminparams', :action => 'show' %>
-	<% end %>
+        <% end %>
+	<%= link_to "Rank polocies", :controller=> 'adminparams', :action => 'show' %>
+	
 	<%= link_to "Sign out" , destroy_user_session_path ,:method => :delete %>
 <% else %>
 	<%= link_to "Sign in" , new_user_session_path %>

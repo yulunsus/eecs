@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
 	    where(conditions.to_hash).first
 	  end
   end
-
+  
 
 end

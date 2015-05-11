@@ -6,7 +6,7 @@
 	<p>nick_name <%= @user_show.nick_name%> </p>
 	<p>email <%= @user_show.email%> </p>
 	<p>rank <%= @user_show.rank%> </p>
-	<%if @user_show.is_admin == true && @user.is_admin == true%>
+	<%if @user_show.is_admin == 1 && @user.is_admin == 1%>
 		<p>Administractor Yes </p>
 	<% end %>
         <p>Number of uploaded feedbacks <%= @user_show.feedbacks.count%> </p>
@@ -20,7 +20,7 @@
 	<p>nick_name <%= @user.nick_name%> </p>
 	<p>email <%= @user.email%> </p>
 	<p>rank <%= @user.rank%> </p>
-	<%if @user.is_admin == true%>
+	<%if @user.is_admin == 1%>
 		<p>Administractor Yes </p>
 	<% end %>
         <p>Number of uploaded feedbacks <%= @user.feedbacks.count%> </p>

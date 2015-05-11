@@ -22,6 +22,7 @@ class CourseFeedbacksController < ApplicationController
     if @feedback.save
       redirect_to course_feedbacks_url(@course)
       @user.rank+=@adminparam.point_get_feedback
+      @user.maxrank+=@adminparam.point_get_feedback
       @user.save
     else
       render :action => :new
@@ -49,6 +50,7 @@ class CourseFeedbacksController < ApplicationController
       @feedback.user.save
     else
       @user.rank-=@adminparam.point_get_feedback
+      @user.maxrank-=@adminparam.point_get_feedback
       @user.save
     end
     @feedback.destroy
@@ -70,6 +72,6 @@ class CourseFeedbacksController < ApplicationController
   end
 
   def feedback_params
-    params.require(:feedback).permit(:content,:year,:rating)
+    params.require(:feedback).permit(:content,:year,:rating,:lecture_way,:partitioning,:test_homework)
   end
 end

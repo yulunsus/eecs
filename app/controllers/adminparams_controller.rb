@@ -21,9 +21,9 @@ class AdminparamsController < ApplicationController
   end
   
   def show
-      if current_user.is_admin!=true
-        redirect_to root_url
-      end
+      #if current_user.is_admin!=1
+      #  redirect_to root_url
+      #end
   end
   
   def destroy
@@ -33,7 +33,7 @@ class AdminparamsController < ApplicationController
   end
 
   def edit
-     if current_user.is_admin!=true
+     if current_user.is_admin!=1
         redirect_to root_url
       end
   end
