@@ -1,15 +1,21 @@
+<nav class ="navbar navbar-default" role="navigation">
 
-<%= link_to "Home" , root_url%>
-<% if user_signed_in?%>
-	<%= link_to "Heros", :controller=> 'users', :action => 'hero' %>
-	<%= link_to "#{current_user.username}" , users_path %>
-	<%if @user.is_admin == 1%>
-		Administractor
-        <% end %>
-	<%= link_to "Rank polocies", :controller=> 'adminparams', :action => 'show' %>
-	
-	<%= link_to "Sign out" , destroy_user_session_path ,:method => :delete %>
-<% else %>
-	<%= link_to "Sign in" , new_user_session_path %>
-<%end%>
+	<div class ="navbar-header">
+		<ul class ="nav navbar-nav">
+			<li> <%= link_to "Home" , root_url%></li>
+				<% if user_signed_in?%>
+					<li><%= link_to "Heros" , :controller => 'users' , :action => 'hero'%></li>
+					<li><%= link_to "#{current_user.username}" , users_path%></li>
+					<li><%= link_to "Sign out", destroy_user_session_path , :method => :delete %> </li>
+					<li> <%= link_to "Rank Policies" , :controller => 'adminparams' , :action => 'show'%></li>
+					<%if current_user.is_admin == 1%>
+						<li> <a hred="#">admin_mode</a>  </li>
+					<% end %>
+				<% else %>		 
+					<li><%= link_to "Sign in" , new_user_session_path%></li>
+				<% end%>
+		</ul>
+	</div>
+</nav>
+
 
