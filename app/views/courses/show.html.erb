@@ -2,5 +2,6 @@
 <li>Instructor:  <%= @course.instructor %></li>
 <li>Grade:       <%= @grade %></li>
 <li>Description: <%= simple_format(@course.description) %></li>
-<%= link_to 'feedbacks', course_feedbacks_path(@course) %>
-<li><%= link_to 'Back to course index', courses_path %></li>
+<p><%= link_to 'feedbacks', course_feedbacks_path(@course) %></p>
+<p><%= link_to 'past exams', course_pastexams_path(@course) %></p>
+<p><%= link_to 'Back to course index', courses_path %></p>

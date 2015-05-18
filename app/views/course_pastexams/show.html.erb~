@@ -1,0 +1,6 @@
+<p>Course: <%= @course.name %> </p>
+<p>Instructor: <%= @course.instructor %> </p>
+<p>Year: <%= @pastexam.year %> </p>
+<p>Author: <%= @pastexam.user.last_name %> <%= @pastexam.user.first_name %></p>
+<%= link_to 'back to pastexam list', course_pastexams_url(@course) %>
+

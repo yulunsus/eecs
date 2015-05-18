@@ -3,7 +3,10 @@ Rails.application.routes.draw do
  resource :users
  resource :adminparams
  resources :courses do
-	 resources :feedbacks, :controller => 'course_feedbacks'
+	resources :feedbacks, :controller => 'course_feedbacks'
+ end
+ resources :courses do
+  	resources :pastexams, :controller => 'course_pastexams'
  end
  
 # root to:"users#index"

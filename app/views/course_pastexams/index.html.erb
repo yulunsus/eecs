@@ -1,0 +1,16 @@
+<ul>
+<% @pastexams.each do |pastexam| %>
+	<li>
+	  <%= pastexam.year %>
+	  <%= pastexam.user.last_name %>
+          <%= pastexam.user.first_name %>
+	  <%= link_to 'show', course_pastexam_path(@course, pastexam) %>
+
+	  <%= link_to 'destroy', course_pastexam_path(@course, pastexam),
+	                            :method => :delete %>
+	</li>
+<% end %>
+
+</ul>
+<%= link_to 'new pastexam', new_course_pastexam_path(@course) %>
+<p><%= link_to 'back to course', course_path(@course)%></p>

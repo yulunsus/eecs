@@ -1,0 +1,15 @@
+<%= form_for @pastexam, :url => course_pastexams_path(@course) do |f| %>
+    
+    <div class = "field">
+		<%= f.label :year%>
+		<%= f.select (:year),	
+	  	 options_for_select((80..120))
+		%>
+    </div>
+
+    <%= f.submit "Create" %>
+
+<% end %>
+
+<p><%= link_to 'Back to index', :controller => 'course_pastexams', :action => 'index' %></p>
+
