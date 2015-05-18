@@ -1,5 +1,7 @@
+
 <%if @user_show %>
 	<h1> user name <%=@user_show.username %></h1>
+	<p>avatar <%= image_tag(@user_show.avatar.url) %> </p>
 	<p>class_year <%= @user_show.class_year%> </p>
 	<p>first_name <%= @user_show.first_name%> </p>
 	<p>last_name <%= @user_show.last_name%> </p>
@@ -14,6 +16,7 @@
 	
 <% else %>
 	<h1> user name <%=@user.username %></h1>
+	<p>avatar <%= image_tag(@user.avatar.url) %></p>
 	<p>class_year <%= @user.class_year%> </p>
 	<p>first_name <%= @user.first_name%> </p>
 	<p>last_name <%= @user.last_name%> </p>

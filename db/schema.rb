@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511084606) do
+ActiveRecord::Schema.define(version: 20150518150900) do
 
   create_table "adminparams", force: :cascade do |t|
     t.integer  "point_get_feedback"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150511084606) do
     t.string   "last_name"
     t.string   "nick_name"
     t.integer  "maxrank",                          default: 0
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
