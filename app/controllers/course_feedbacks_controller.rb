@@ -18,7 +18,8 @@ class CourseFeedbacksController < ApplicationController
 
   def create
     @feedback = @course.feedbacks.build( feedback_params )
-    @feedback.user_id=@user.id
+    @feedback.user_id=@user.id 
+    @feedback.point_get = @adminparam.point_get_feedback
     if @feedback.save
       redirect_to course_feedbacks_url(@course)
       @user.rank+=@adminparam.point_get_feedback
@@ -49,9 +50,11 @@ class CourseFeedbacksController < ApplicationController
       @feedback.user.rank-=@adminparam.point_get_feedback
       @feedback.user.save
     else
-      @user.rank-=@adminparam.point_get_feedback
-      @user.maxrank-=@adminparam.point_get_feedback
-      @user.save
+      if @feedback.point_get
+        @user.rank-=@feedback.point_get
+        @user.maxrank-=@feedback.point_get
+        @user.save
+      end
     end
     @feedback.destroy
     redirect_to course_feedbacks_url(@course)
@@ -72,6 +75,6 @@ class CourseFeedbacksController < ApplicationController
   end
 
   def feedback_params
-    params.require(:feedback).permit(:content,:year,:rating,:lecture_way,:partitioning,:test_homework)
+    params.require(:feedback).permit(:content,:year,:rating,:lecture_way,:partitioning,:test_homework,:other)
   end
 end

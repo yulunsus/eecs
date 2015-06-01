@@ -1,17 +1,25 @@
 Rails.application.routes.draw do
  devise_for :users , controllers:{ sessions: "users/sessions" , :registrations => "users/registrations"}
+ root to:"home#index"
  resource :users
  resource :adminparams
  resources :courses do
 	resources :feedbacks, :controller => 'course_feedbacks'
  end
+ 
  resources :courses do
   	resources :pastexams, :controller => 'course_pastexams'
  end
  
 # root to:"users#index"
+ match "/uploads/pastexam", :controller => "course_pastexams", :action => "block", :via => :all
  match ':controller(/:action(/:id(.:format)))', :via => :all
- root to:"home#index"
+ 
+ get "/uploads/:id", :controller => "course_pastexams", :action => "download"
+ 
+ 
+ 
+ 
  
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

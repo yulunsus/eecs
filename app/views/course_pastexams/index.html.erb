@@ -1,15 +1,42 @@
-<ul>
-<% @pastexams.each do |pastexam| %>
-	<li>
-	  <%= pastexam.year %>
-	  <%= pastexam.user.last_name %>
-          <%= pastexam.user.first_name %>
-	  <%= link_to 'show', course_pastexam_path(@course, pastexam) %>
+<p>Name:        <%= @course.name %>
+<p>Instructor:  <%= @course.instructor %>
 
-	  <%= link_to 'destroy', course_pastexam_path(@course, pastexam),
-	                            :method => :delete %>
-	</li>
-<% end %>
+<ul>
+
+<table class="table table-hover">
+  <tr>
+    <th>Year</th>
+    <th>Uploader</th>
+    <th>Answer</th>
+    <th>Type</th>
+    <th>Link</th>
+    <th>Publish date</th>
+    <th>Delete</th>
+  </tr>
+  
+  <% @pastexams.each do |pastexam| %>
+  
+	<tr>
+	  <th><%= pastexam.year %></th>
+	  <th>
+          <%= link_to "#{pastexam.user.nick_name}", :controller => 'users', :action => 'show',:id => pastexam.user %></th>
+          <th><%= pastexam.has_answer %></th>
+          <th>
+          <%= @type_list[pastexam.exam_type] %>
+          <%= pastexam.which_time %>
+          </th>
+          <th><%= link_to "Download file", "/uploads/#{pastexam.id}" %></th>
+          <th><%= pastexam.created_at.to_date %></th>
+          <%if pastexam.user == current_user %>
+            <th><%= link_to 'destroy', course_pastexam_path(@course, pastexam),
+	                            :method => :delete %></th>
+          <%else%>
+          <th></th>
+          <% end %>
+           
+        </tr>
+   <% end %>
+   </table>
 
 </ul>
 <%= link_to 'new pastexam', new_course_pastexam_path(@course) %>

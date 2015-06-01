@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511084606) do
+ActiveRecord::Schema.define(version: 20150529144304) do
 
   create_table "adminparams", force: :cascade do |t|
     t.integer  "point_get_feedback"
@@ -37,12 +37,13 @@ ActiveRecord::Schema.define(version: 20150511084606) do
     t.text     "content"
     t.integer  "rating"
     t.integer  "year"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.text     "lecture_way"
     t.text     "test_homework"
     t.text     "partitioning"
     t.text     "other"
+    t.integer  "point_get",     default: 0
   end
 
   create_table "pastexams", force: :cascade do |t|
@@ -52,8 +53,10 @@ ActiveRecord::Schema.define(version: 20150511084606) do
     t.integer  "exam_type"
     t.boolean  "has_answer"
     t.integer  "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "which_time"
+    t.integer  "point_get",  default: 0
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,11 +3,34 @@
     <div class = "field">
 		<%= f.label :year%>
 		<%= f.select (:year),	
-	  	 options_for_select((80..120))
+	  	 options_for_select((1991..2031))
 		%>
     </div>
-
-    <%= f.submit "Create" %>
+    <div class = "field">
+		<%= f.label :exam_type%>
+		<%= f.select (:exam_type),	
+	  	 options_for_select([['midterm', 0], ['final', 1], ['quiz',2],['homework',3],['project',4],['others',5]]) 
+		%>
+    </div>
+    <div class = "field">
+		<%= f.label :which_time%>
+		<%= f.select (:which_time),	
+	  	 options_for_select((1..30))
+		%>
+    </div>
+    <div class = "field">
+		<%= f.label :has_answer%>
+		<%= f.select (:has_answer),	
+	  	 options_for_select([['No', 0], ['Yes', 1]]) 
+		%>
+    </div>
+    <%= f.label :file %>
+    <%= f.file_field :file %>
+    <% if @pastexam.errors[:file].presence %>
+        <%= @pastexam.errors[:file].join(", ") %>
+    <% end %>
+   
+    <p><%= f.submit "Create" %></p>
 
 <% end %>
 
