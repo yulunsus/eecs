@@ -4,13 +4,13 @@ Rails.application.routes.draw do
  resource :users
  resource :adminparams
  resources :courses do
-	resources :feedbacks, :controller => 'course_feedbacks'
+ resources :feedbacks, :controller => 'course_feedbacks'
  end
  
  resources :courses do
   	resources :pastexams, :controller => 'course_pastexams'
  end
- 
+ resources :camp_activities 
 # root to:"users#index"
  match "/uploads/pastexam", :controller => "course_pastexams", :action => "block", :via => :all
  match ':controller(/:action(/:id(.:format)))', :via => :all

@@ -1,0 +1,5 @@
+<%= form_for @camp_activity , :url => camp_activities_path do |f|%>
+	<%= f.label :name  , "Name"%>
+	<%= f.text_field :name%>
+	<%= f.submit "Create"%>
+<% end%>

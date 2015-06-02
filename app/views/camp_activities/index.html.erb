@@ -1,0 +1,13 @@
+<ul>
+	<% @camp_activities.each do |c|%>
+		<li>
+			<%= c.name %>
+			<%=link_to "show" , camp_activity_path(c)%>	
+			<%=link_to "edit" , edit_camp_activity_path(c)%>	
+			<%=link_to "delete" , camp_activity_path(c) , :method => :delete %>	
+			
+		</li>
+	<% end %>
+</ul>
+<p><%= link_to "New camp activity" , new_camp_activity_path%></p>
+<p><%=  link_to "back to home" , root_url%></p>

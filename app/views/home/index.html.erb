@@ -2,6 +2,7 @@
 
 <% if user_signed_in? %>
 	 <li><%= link_to 'Courses', :controller => 'courses', :action => 'index' %></li>
+	 <li><%= link_to 'Camp activities', camp_activities_url %> </li>
 <% end %>
 
 
