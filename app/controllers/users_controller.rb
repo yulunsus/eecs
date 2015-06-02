@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	 #end
 	end
  	def hero
-   		@users=User.all.order("rank DESC")
+   		@users=User.all.order("maxrank DESC")
 		@user = current_user
 	end
 

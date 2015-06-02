@@ -10,6 +10,8 @@ class CourseFeedbacksController < ApplicationController
 
   def show
     @feedback = @course.feedbacks.find(params[:id])
+    @feedback.visit_time+=1
+    @feedback.save
   end
   
   def new

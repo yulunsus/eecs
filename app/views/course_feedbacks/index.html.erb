@@ -1,22 +1,44 @@
 <ul>
-
+<table class="table table-hover">
+  <tr>
+    <th>Year</th>
+    <th>Rating</th>
+    <th>Uploader</th>
+    <th>Link</th>
+    <th>Publish date</th>
+    <th>View time</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
 <% @feedbacks.each do |feedback| %>
-        <% if @user.rank >= @adminparam.point_need_feedback || @user == feedback.user || current_user.is_admin==1%>
-	<li>
-	  <%= feedback.year %>
-          <%= feedback.user.last_name %>
-          <%= feedback.user.first_name %>
-	  <%= link_to 'show', course_feedback_path(@course, feedback) %>
-          <% if @user == feedback.user || current_user.is_admin==1%>
-	    <%= link_to 'edit', edit_course_feedback_path(@course, feedback) %>
-	    <%= link_to 'destroy', course_feedback_path(@course, feedback),
-	                              :method => :delete %>
+	  <tr>
+	  <th><%= feedback.year %>   
+
+          <th><%= feedback.rating%></th>     
+  
+          <th><%= link_to "#{feedback.user.nick_name}", :controller => 'users', :action => 'show',:id => feedback.user %></th>
+
+          <% if current_user.rank >= @adminparam.point_need_feedback || current_user == feedback.user || current_user.is_admin==1 %>
+	    <th><%= link_to 'show', course_feedback_path(@course, feedback) %></th>
+          <%else%>
+            <th>points not enough</th>
+          <%end%>
+
+          <th><%= feedback.updated_at.to_date %></th>
+          <th><%= feedback.visit_time %></th>
+          <% if current_user == feedback.user || current_user.is_admin==1 %>
+	    <th><%= link_to 'edit', edit_course_feedback_path(@course, feedback) %></th>
+	    <th><%= link_to 'delete', course_feedback_path(@course, feedback),
+	                              :method => :delete , data: { confirm: 'Are you sure?' }%></th>
+          <%else%>
+            <th></th>
+            <th></th>
           <% end %>
-	</li>
+          </tr>
+          
+	
 <% end %>
-<% end %>
-
+</table>
 </ul>
-
-	  <%= link_to 'new feedback', new_course_feedback_path(@course) %>
- <%= link_to 'back to course', course_path(@course)%>
+<%= link_to 'new feedback', new_course_feedback_path(@course) %>
+<%= link_to 'back to course', course_path(@course)%>
