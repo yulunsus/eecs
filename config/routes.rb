@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   	resources :pastexams, :controller => 'course_pastexams'
  end
  resources :camp_activities 
+ resources :camp_workers
 # root to:"users#index"
  match "/uploads/pastexam", :controller => "course_pastexams", :action => "block", :via => :all
  match ':controller(/:action(/:id(.:format)))', :via => :all

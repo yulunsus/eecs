@@ -1,0 +1,43 @@
+<%= form_for @camp_worker do |f|%>
+<ul>
+<li>
+	<%= f.label :name , "名字" %>
+	<%= f.text_field :name%>
+</li>	
+<li>
+	<%= f.label :gender , "性別" %>
+	<%= f.radio_button :gender , "男" , :checked => true  %>
+	<%= label :gender  , "男"%>
+	<%= f.radio_button :gender , "女"    %>
+	<%= label :gender  , "女"%>
+	
+</li>	
+<li>
+	<%= f.label :grade , "系級" %>
+	<%= f.select (:grade)  ,
+		options_for_select((96..120))
+	%>
+</li>	
+<li>
+	<%= f.label :email , "e-mail" %>
+	<%= f.text_field :email%>
+</li>	
+<li>
+	<%= f.label :cellphone , "手機號碼" %>
+	<%= f.text_field :cellphone%>
+</li>
+<li>
+	
+	<%= f.radio_button :level , "0" , :checked => true  %>
+	<%= label :level  , "幹部"%>
+	<%= f.radio_button :level , "1"    %>
+	<%= label :level  , "工人"%>
+	
+</li>
+</ul>
+
+
+<p>	<%= f.submit "Create"%></p>
+	
+
+<% end%>
