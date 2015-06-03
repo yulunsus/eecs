@@ -1,5 +1,8 @@
 <%= form_for @camp_activity , :url => camp_activities_path do |f|%>
 	<%= f.label :name  , "Name"%>
 	<%= f.text_field :name%>
+	
+	<%= f.collection_check_boxes(:camp_worker_ids , CampWorker.all , :id , :name )%>
+	
 	<%= f.submit "Create"%>
 <% end%>

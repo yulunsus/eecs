@@ -1,2 +1,14 @@
-<%= @camp_activity.name%>
+
+<p><%= @camp_activity.name%></p>
+<div>
+<p>參與名單:</p>
+	<% @camp_activity.camp_workers.each do |w|%>
+		<ul>
+			<li>名字:<%= w.name%></li>
+			<li>手機:<%= w.cellphone%></li>
+		</ul>
+	<% end%>
+</div>
+
+
 <p> <%= link_to "back to index" , camp_activities_path%></p>

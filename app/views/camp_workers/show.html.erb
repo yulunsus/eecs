@@ -1,12 +1,40 @@
 
 <ul>
-</li><%= @camp_worker.name%></ii>
-</li><%= @camp_worker.gender%></ii>
-</li><%= @camp_worker.grade%></ii>
-</li><%= @camp_worker.email%></ii>
-</li><%= @camp_worker.cellphone%></ii>
-</li><%= @camp_worker.level%></ii>
-</ui>
+	<li>姓名:<%= @camp_worker.name%></li>
+	<li>性別:<%= @camp_worker.gender%></li>
+	<li>年級:<%= @camp_worker.grade%></li>
+	<li>email:<%= @camp_worker.email%></li>
+	<li>手機:<%= @camp_worker.cellphone%></li>
+	<li>組別:
+
+		<% if  @camp_worker.department == 1 %>
+			<%= "行政"%>
+		<% elsif  @camp_worker.department == 2  %>
+			<%=  "活動"%>
+		<% elsif  @camp_worker.department == 3  %>
+			<%=  "生活"%>
+		<% elsif  @camp_worker.department == 4  %>
+			<%=  "場器"%>
+		<% elsif  @camp_worker.department == 5  %>
+			<%=  "美宣"%>
+		<% elsif  @camp_worker.department == 6  %>
+			<%=  "公關"%>
+		<% elsif  @camp_worker.department == 7  %>
+			<%=  "課程"%>
+		<% else  @camp_worker.department == 8 %>
+			<%=  "其他"%>
+		<% end %>	
+	</li>
+	<li>第 <%= @camp_worker.team%>小隊</li>
+	<li>負責活動:
+		<ul>
+		<% @camp_worker.camp_activities.each do |a|%>
+			<li><%= a.name%> </li>
+		<% end %>
+		</ul>
+	</li>
+	
+</ul>
 
 
 <p><%= link_to "back to index" , camp_workers_path%></p>

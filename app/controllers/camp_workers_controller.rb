@@ -31,7 +31,8 @@ before_action :set_camp_worker , :only => [:show , :edit , :update , :destroy]
 private
 
   def camp_worker_params
-    params.require(:camp_worker).permit(:name , :gender , :grade , :email , :cellphone)
+    params.require(:camp_worker).permit(:name , :gender , :grade , :email , :cellphone , :level , :department , :team,
+		:camp_activity_ids =>[])
   end
   def set_camp_worker
     @camp_worker = CampWorker.find(params[:id]);

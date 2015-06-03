@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602180813) do
+ActiveRecord::Schema.define(version: 20150603073615) do
 
   create_table "adminparams", force: :cascade do |t|
     t.integer  "point_get_feedback"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20150602180813) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "camp_activity_workerships", force: :cascade do |t|
+    t.integer  "camp_worker_id"
+    t.integer  "camp_activity_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "camp_workers", force: :cascade do |t|

@@ -1,5 +1,7 @@
 <%= form_for @camp_activity do |f|%>
-	<%= f.label :name , "Name"%>
+	<%= f.label :name  , "Name"%>
 	<%= f.text_field :name%>
-	<%= f.submit "Update"%>
-<%end%>
+	
+	<%= f.collection_check_boxes(:camp_worker_ids, CampWorker.all, :id, :name)%>
+	<%= f.submit "Update" %>
+<% end%>

@@ -29,7 +29,8 @@ before_action :set_camp_activity , :only => [:show, :edit , :update , :destroy]
 private 
 	
 	def camp_activity_params
-		params.require(:camp_activity).permit(:name)
+		params.require(:camp_activity).permit(:name ,
+		:camp_worker_ids => [] )
 	end
 	def set_camp_activity
 		@camp_activity = CampActivity.find(params[:id]);
