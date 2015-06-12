@@ -1,18 +1,18 @@
 <ul>
-
-<% @camp_workers.each do |w|%>
-	<li>
-		<%= w.name%>
-		<%= link_to 'show' , camp_worker_path(w)%>
-		<%= link_to 'edit' , edit_camp_worker_path(w)%>
-		<%= link_to 'destroy', camp_worker_path(w) , :method => :delete %>
+	<% @camp_workers.each do |w|%>
+		<li>
+			<%= w.name%>
+			<%= link_to 'show' , camp_worker_path(w)%>
+			<% if user_signed_in? && current_user.is_admin == 1 %>
+				<%= link_to 'edit' , edit_camp_worker_path(w)%>
+				<%= link_to 'destroy', camp_worker_path(w) , :method => :delete %>
+			<% end %>
 	</li>
-
-
-<% end %>
-
+	<% end %>
 </ul>
 
+<% if user_signed_in? && current_user.is_admin == 1 %>
+			<p><%= link_to 'New camp_worker' , new_camp_worker_path%></p>
+<% end %>
 
-<p><%= link_to 'New camp_worker' , new_camp_worker_path%></p>
 <p><%= link_to 'Back to home' , root_url%></p>

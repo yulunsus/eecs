@@ -1,78 +1,10 @@
 <%= form_for @camp_worker do |f|%>
-<ul>
-<li>
-	<%= f.label :name , "名字" %>
-	<%= f.text_field :name%>
-</li>	
-<li>
-	<%= f.label :gender , "性別" %>
-	<%= f.radio_button :gender , "男" , :checked => true  %>
-	<%= label :gender  , "男"%>
-	<%= f.radio_button :gender , "女"    %>
-	<%= label :gender  , "女"%>
-	
-</li>	
-<li>
-	<%= f.label :grade , "系級" %>
-	<%= f.select (:grade)  ,
-		options_for_select((96..120))
-	%>
-</li>	
-<li>
-	<%= f.label :email , "e-mail" %>
-	<%= f.text_field :email%>
-</li>	
-<li>
-	<%= f.label :cellphone , "手機號碼" %>
-	<%= f.text_field :cellphone%>
-</li>
-<li>
-	
-	<%= f.radio_button :level , "0" , :checked => true  %>
-	<%= label :level  , "幹部"%>
-	<%= f.radio_button :level , "1"    %>
-	<%= label :level  , "工人"%>
-	
-</li>
-<li>
-	<%= f.label :department , "組別"%>
-	<%= f.select :department  ,
-			options_for_select([
-			['行政'  , '1'], 
-			['活動'  , '2'], 
-			['生活'  , '3'], 
-			['場器'  , '4'], 
-			['美宣'  , '5'], 
-			['公關'  , '6'], 
-			['課程'  , '7'], 
-			['其他'  , '8'], 
-			]) %>
 
-</li>
-
-<li>
-  <%= f.label :team , "小隊"%>
-  <%= f.select :team  ,
-      options_for_select([
-      ['一'  , '1'],
-      ['二'  , '2'],
-      ['三'  , '3'],
-      ['四'  , '4'],
-      ['五'  , '5'],
-      ['六'  , '6'],
-      ['七'  , '7'],
-      ['八'  , '8'],
-      ]) %>
-
-</li>
-<li>負責活動:
-	<%= f.collection_check_boxes(:camp_activity_ids ,CampActivity.all , :id , :name )%>
-</li>
-
-</ul>
-
-
+<%= render :partial => 'form'  , :locals => {:f => f }%>
 <p>	<%= f.submit "Update"%></p>
 	
 
 <% end%>
+
+
+<p><%= link_to "back", camp_workers_url %></p>

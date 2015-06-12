@@ -3,11 +3,16 @@
 		<li>
 			<%= c.name %>
 			<%=link_to "show" , camp_activity_path(c)%>	
+		
+			<% if user_signed_in? && current_user.is_admin == 1 %>
 			<%=link_to "edit" , edit_camp_activity_path(c)%>	
 			<%=link_to "delete" , camp_activity_path(c) , :method => :delete %>	
-			
+			<% end %>
 		</li>
 	<% end %>
 </ul>
-<p><%= link_to "New camp activity" , new_camp_activity_path%></p>
+
+<% if user_signed_in? && current_user.is_admin == 1 %>
+	<p><%= link_to "New camp activity" , new_camp_activity_path%></p>
+<% end %>
 <p><%=  link_to "back to home" , root_url%></p>

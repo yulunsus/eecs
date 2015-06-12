@@ -1,0 +1,11 @@
+	
+	<div>
+	<%= f.label :name  , "Name"%>
+	<%= f.text_field :name%>
+	</div>
+	<div>	
+	<p>	<%= f.label  :member , "成員名單"%></p>
+		<div class="col-md-4 checkbox_container">	
+		<%= f.collection_check_boxes :camp_worker_ids, CampWorker.all, :id, :name%>
+		</div>
+	</div>

@@ -1,8 +1,12 @@
-<%= form_for @camp_activity , :url => camp_activities_path do |f|%>
-	<%= f.label :name  , "Name"%>
-	<%= f.text_field :name%>
+<%= form_for @camp_activity do |f|%>
 	
-	<%= f.collection_check_boxes(:camp_worker_ids , CampWorker.all , :id , :name )%>
-	
-	<%= f.submit "Create"%>
+	<%= render :partial => 'form' , :locals => {:f => f }%>
+	<div class="col-md-12">
+	<%= f.submit "Create" %>
+	</div>
 <% end%>
+
+
+	<div class="col-md-12">
+<%= link_to "Back" , camp_activities_url%>
+	</div>
