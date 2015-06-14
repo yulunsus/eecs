@@ -1,0 +1,13 @@
+<ul>
+	<% @camp_practices.each do |p| %>
+	<li>
+					  <%= p.name %>
+					  <%= link_to 'show', camp_activity_camp_practice_path(@camp_activity, p) %>
+					  <%= link_to 'edit', edit_camp_activity_camp_practice_path(@camp_activity, p) %>
+						<%= link_to 'destroy', camp_activity_camp_practice_path(@camp_activity, p) , :method => :delete %>
+	</li>
+	<% end %>
+
+</ul>
+		<%= link_to 'new practice', new_camp_activity_camp_practice_path(@camp_activity) %>
+
