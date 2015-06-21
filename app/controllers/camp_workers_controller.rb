@@ -21,7 +21,7 @@ before_action :set_camp_worker , :only => [:show , :edit , :update , :destroy]
   def update
     @camp_worker.update(camp_worker_params)
 
-    redirect_to camp_workers_path
+    redirect_to camp_worker_path(@camp_worker)
   end
   def destroy
     @camp_worker.destroy

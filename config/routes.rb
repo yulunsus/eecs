@@ -10,7 +10,9 @@ Rails.application.routes.draw do
  resources :courses do
   	resources :pastexams, :controller => 'course_pastexams'
  end
- resources :camp_activities 
+ resources :camp_activities do
+ 	resources :camp_practices  , :controller => 'activity_practices'
+ end
  resources :camp_workers
 # root to:"users#index"
  match "/uploads/pastexam", :controller => "course_pastexams", :action => "block", :via => :all

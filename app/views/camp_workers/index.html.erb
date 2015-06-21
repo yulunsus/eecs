@@ -1,16 +1,25 @@
-<ul>
+<table class="table table-hover">
+	<caption>工作人員名單</caption>
+	<tr>
+		<th>名字</th>
+		<th>小隊</th>
+		<th>組別</th>
+		<th>email</th>
+		<th>手機</th>
+	</tr>
 	<% @camp_workers.each do |w|%>
-		<li>
-			<%= w.name%>
-			<%= link_to 'show' , camp_worker_path(w)%>
-			<% if user_signed_in? && current_user.is_admin == 1 %>
-				<%= link_to 'edit' , edit_camp_worker_path(w)%>
-				<%= link_to 'destroy', camp_worker_path(w) , :method => :delete %>
-			<% end %>
-	</li>
+	<tr>
+		<th><%= link_to "#{w.name}" , camp_worker_path(w)%></th>
+		<th><%= w.team%></th>
+		<th>
+			<%= get_department_name(w.department)%>
+			
+		</th>
+		<th><%= w.email%></th>
+		<th><%= w.cellphone%></th>
+	</tr>			
 	<% end %>
-</ul>
-
+</table>
 <% if user_signed_in? && current_user.is_admin == 1 %>
 			<p><%= link_to 'New camp_worker' , new_camp_worker_path%></p>
 <% end %>

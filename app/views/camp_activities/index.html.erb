@@ -3,10 +3,11 @@
 		<li>
 			<%= c.name %>
 			<%=link_to "show" , camp_activity_path(c)%>	
-		
+			<%=link_to "practices" , camp_activity_camp_practices_path(c) %>
 			<% if user_signed_in? && current_user.is_admin == 1 %>
 			<%=link_to "edit" , edit_camp_activity_path(c)%>	
 			<%=link_to "delete" , camp_activity_path(c) , :method => :delete %>	
+			
 			<% end %>
 		</li>
 	<% end %>
