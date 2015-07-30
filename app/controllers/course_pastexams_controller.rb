@@ -60,7 +60,7 @@ class CoursePastexamsController < ApplicationController
     end
     path = getfilename(@pastexam,@course)
     if File.exist? path
-    	FileUtils.remove "#{path}"
+    	FileUtils.rm(path)
     end
     @pastexam.destroy
 
