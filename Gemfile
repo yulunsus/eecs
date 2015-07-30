@@ -8,7 +8,10 @@ gem 'sqlite3'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+#group :assets do
+#    gem 'sass-rails'
+#end
+
 gem 'less'
 gem 'less-rails'
 gem 'less-rails-bootstrap'
@@ -28,7 +31,7 @@ gem 'therubyracer'
 
 # use Kaminari to paginate
 gem 'kaminari'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+## See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
