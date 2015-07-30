@@ -2,7 +2,7 @@
 <li>Instructor:  <%= @course.instructor %></li>
 <li>Grade:       <%= @grade %></li>
 <li>Description: <%= simple_format(@course.description) %></li>
-<li>Average rating: <%= format("%.2f",@course.feedbacks.average(:rating)).to_f   %></li>
+<li>Average rating: <%= format("%.2f",@average_rate).to_f   %></li>
 <p><%= link_to 'feedbacks', course_feedbacks_path(@course) %></p>
 <p><%= link_to 'past exams', course_pastexams_path(@course) %></p>
 <p><%= link_to 'Back to course index', courses_path %></p>

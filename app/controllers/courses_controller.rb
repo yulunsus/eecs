@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   before_action :set_user 
 	
   def index
+    @year_list= ["","freshman","sophomore","junior and senior","graduate","language","general"]
     @courses = Course.all.order('grade')
   end
 
@@ -27,6 +28,10 @@ class CoursesController < ApplicationController
   def show
     #@course = Course.find(params[:id])
     grade_selector=['','freshman','sophomore','junior and senior','graduate','foreign language','general knowledge']
+    @average_rate = 0
+    if not @course.feedbacks.count == 0 
+        @average_rate = @course.feedbacks.average(:rating)
+    end
     @grade = grade_selector[@course.grade]
   end
   
