@@ -7,6 +7,7 @@ gem 'rails', '4.2.0'
 gem 'sqlite3'
 gem 'mysql2'
 
+
 # Use SCSS for stylesheets
 gem 'sass-rails'
 gem 'less'
@@ -88,3 +89,4 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'autoprefixer-rails'
 
 gem 'thin'
+
