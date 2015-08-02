@@ -1,5 +1,5 @@
 <%if @user_show %>
-	<h1> user name <%=@user_show.username %></h1>
+	<h1><%=@user_show.username %></h1>
 	<p>class_year <%= @user_show.class_year%> </p>
 	<p>first_name <%= @user_show.first_name%> </p>
 	<p>last_name <%= @user_show.last_name%> </p>
@@ -13,7 +13,7 @@
         <p>Number of uploaded pastexams <%= @user_show.pastexams.count%> </p>
 	
 <% else %>
-	<h1> user name <%=@user.username %></h1>
+	<h1><%=@user.username %></h1>
 	<p>class_year <%= @user.class_year%> </p>
 	<p>first_name <%= @user.first_name%> </p>
 	<p>last_name <%= @user.last_name%> </p>
@@ -28,6 +28,8 @@
 
 <%end%>
 <% if @user_show == @user || !@user_show%> 
-	<%= link_to "edit_profle" , edit_user_registration_path%>
+	<p>
+	  <%= link_to "edit_profle" , edit_user_registration_path%>
+	</p>
 <% end %>
-<%= link_to :back_to_home ,root_url%>
+<p><%= link_to :back_to_home ,root_url%></p>

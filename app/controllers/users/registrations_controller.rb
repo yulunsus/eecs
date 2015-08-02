@@ -1,13 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
-	before_filter :configure_permitted_parameters
-
-protected
-	def configure_permitted_parameters
-		devise_parameter_sanitizer.for(:sign_up).push(:username, :first_name, :last_name , :nick_name , :description , :class_year, :email);			
-		#devise_parameter_sanitizer.sanitize(:sign_up)	
-	end
+before_filter :configure_permitted_parameters
   # GET /resiurce/sign_up
   # def new
   #   super
@@ -19,14 +13,15 @@ protected
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+   def edit
+	super     
+   end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  
+  def update
+     super
+   end
 
   # DELETE /resource
   # def destroy
@@ -43,6 +38,12 @@ protected
   # end
 
    protected
+
+    def configure_permitted_parameters
+                devise_parameter_sanitizer.for(:sign_up).push(:username, :first_name, :last_name , :nick_name , :description , :class_year, :email);
+                devise_parameter_sanitizer.for(:account_update).push(:username, :first_name, :last_name , :nick_name , :description , :class_year, :email);
+                #devise_parameter_sanitizer.sanitize(:sign_up)
+        end
 
   # You can put the params you want to permit in the empty array.
 
