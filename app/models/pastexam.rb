@@ -3,6 +3,7 @@ class Pastexam < ActiveRecord::Base
   belongs_to :user
   mount_uploader :file, AttachmentUploader
   validate :file_size
+  validates_length_of :description, :maximum => 15
 
   def file_size
     if file.file.size.to_f/(1000*1000) > 50.0

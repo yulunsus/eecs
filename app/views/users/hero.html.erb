@@ -1,15 +1,31 @@
 <ul>
-<% @users.each do |user| %>
-  <li>
-     <%= user.rank%>/<%= user.maxrank %> 
-      <%=user.last_name%>
-      <%=user.first_name%>
-  
-    <%=link_to 'Show', users_path(user) %>
-    <% if current_user.is_admin >0 %>
-	 <%= link_to "edit_profle" , edit_user_registration_path%>
- 
+
+<table class="table table-hover">
+  <tr>
+    <th>Order</th>
+    <th>rank/max_rank</th>
+    <th>class ear</th>
+    <th>name</th>
+    <th>nick name</th>
+    <th>Link</th>
+    <% if current_user.is_admin > 0 %> 
+        <th> Edit </th>
+    <% end %>
+    
+  </tr>
+
+<% @users.each_with_index do |user,index| %>
+    <tr>
+    <td><%=  index+1 %></td>
+    <td><%= user.rank %> / <%= user.maxrank %></td>
+    <td><%= user.class_year %></td> 
+    <td><%= user.last_name %> <%= user.first_name %></td>
+    <td><%= user.nick_name %></td>
+    <td><%=link_to 'Show', :controller => 'users', :action => 'show', :id => user.id %></td>
+    <% if current_user.is_admin == 2 %>
+	 <td><%= link_to "edit_profle" , edit_user_registration_path %></td>
    <%end%>
- </li>
+ </tr>
 <% end %>
+</table>
 </ul>

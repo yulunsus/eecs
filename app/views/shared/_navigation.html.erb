@@ -4,7 +4,7 @@
 		<ul class ="nav navbar-nav">
 			<li> <%= link_to "Home" , root_url%></li>
 				<% if user_signed_in?%>
-					<li><%= link_to "Heros" , users_hero_path%></li>
+					<li><%= link_to "Users" , users_hero_path%></li>
 					<li><%= link_to "#{current_user.username}" , users_path%></li>
 					<li><%= link_to "Sign out", destroy_user_session_path , :method => :delete %> </li>
 					<li> <%= link_to "Rank Policies" ,adminparams_path%></li>

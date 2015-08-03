@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 	end
  	def hero
    		@users=User.all.order("maxrank DESC")
-		@user = current_user
 	end
 
 end

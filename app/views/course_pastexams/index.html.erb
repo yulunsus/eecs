@@ -3,7 +3,7 @@
 
 <ul>
 
-<table class="table table-hover">
+<table width="1" style="word-break:break-all" class="table table-hover">
   <tr>
     <th>Year</th>
     <th>Uploader</th>
@@ -11,28 +11,30 @@
     <th>Type</th>
     <th>Link</th>
     <th>Publish date</th>
+    <th>Description</th>
     <th>Delete</th>
   </tr>
   
   <% @pastexams.each do |pastexam| %>
   
 	<tr>
-	  <th><%= pastexam.year %></th>
-	  <th>
-          <%= link_to "#{pastexam.user.nick_name}", :controller => 'users', :action => 'show',:id => pastexam.user %></th>
-          <th><%= pastexam.has_answer %></th>
-          <th>
+	  <td><%= pastexam.year %></td>
+	  <td>
+          <%= link_to "#{pastexam.user.nick_name}", :controller => 'users', :action => 'show',:id => pastexam.user %></td>
+          <td><%= pastexam.has_answer %></td>
+          <td>
           <%= @type_list[pastexam.exam_type] %>
           <%= pastexam.which_time %>
-          </th>
-          <th><%= link_to "Download file", "/uploads/#{pastexam.id}" %></th>
-          <th><%= pastexam.created_at.to_date %></th>
+          </td>
+          <td><%= link_to "Download file", "/uploads/#{pastexam.id}" %></td>
+          <td><%= pastexam.created_at.to_date %></td>
+          <td><%= pastexam.description %></td>
           
           <%if pastexam.user == current_user || current_user.is_admin>0%>
-            <th><%= link_to 'destroy', course_pastexam_path(@course, pastexam),
-	                            :method => :delete , data: { confirm: 'Are you sure?' }%></th>
+            <td><%= link_to 'destroy', course_pastexam_path(@course, pastexam),
+	                            :method => :delete , data: { confirm: 'Are you sure?' }%></td>
           <%else%>
-          <th></th>
+          <td></td>
           <% end %>
            
         </tr>

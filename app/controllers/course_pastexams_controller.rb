@@ -100,7 +100,7 @@ class CoursePastexamsController < ApplicationController
   end
 
   def pastexam_params
-	params.require(:pastexam).permit(:file ,:exam_type, :has_answer, :year,:which_time)
+	params.require(:pastexam).permit(:file ,:exam_type, :has_answer, :year,:which_time,:description)
   end
 
   def getfilename(pastexam,course)
