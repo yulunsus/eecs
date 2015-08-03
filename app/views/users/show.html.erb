@@ -1,18 +1,4 @@
-<%if @user_show %>
-	<h1><%=@user_show.username %></h1>
-	<p>class_year <%= @user_show.class_year%> </p>
-	<p>first_name <%= @user_show.first_name%> </p>
-	<p>last_name <%= @user_show.last_name%> </p>
-	<p>nick_name <%= @user_show.nick_name%> </p>
-	<p>email <%= @user_show.email%> </p>
-	<p>rank <%= @user_show.rank%> </p>
-	<%if @user_show.is_admin == 1 && @user.is_admin == 1%>
-		<p>Administractor Yes </p>
-	<% end %>
-        <p>Number of uploaded feedbacks <%= @user_show.feedbacks.count%> </p>
-        <p>Number of uploaded pastexams <%= @user_show.pastexams.count%> </p>
-	
-<% else %>
+<%if @user %>
 	<h1><%=@user.username %></h1>
 	<p>class_year <%= @user.class_year%> </p>
 	<p>first_name <%= @user.first_name%> </p>
@@ -20,14 +6,28 @@
 	<p>nick_name <%= @user.nick_name%> </p>
 	<p>email <%= @user.email%> </p>
 	<p>rank <%= @user.rank%> </p>
-	<%if @user.is_admin == 1%>
-		<p>Administractor Yes </p>
+	<%if @user.is_admin >0 && @user.is_admin  >0%>
+		<p>Administractor YesQQ </p>
 	<% end %>
         <p>Number of uploaded feedbacks <%= @user.feedbacks.count%> </p>
-        <p>Number of uploaded pastexams <%= @user.pastexams.count%> </p>	
+        <p>Number of uploaded pastexams <%= @user.pastexams.count%> </p>
+	
+<% else %>
+	<h1><%=current_user.username %></h1>
+	<p>class_year <%= current_user.class_year%> </p>
+	<p>first_name <%= current_user.first_name%> </p>
+	<p>last_name <%= current_user.last_name%> </p>
+	<p>nick_name <%= current_user.nick_name%> </p>
+	<p>email <%= current_user.email%> </p>
+	<p>rank <%= current_user.rank%> </p>
+	<%if current_user.is_admin > 0%>
+		<p>Administractor YesAA </p>
+	<% end %>
+        <p>Number of uploaded feedbacks <%= current_user.feedbacks.count%> </p>
+        <p>Number of uploaded pastexams <%= current_user.pastexams.count%> </p>	
 
 <%end%>
-<% if @user_show == @user || !@user_show%> 
+<% if @user == current_user || !@user%> 
 	<p>
 	  <%= link_to "edit_profle" , edit_user_registration_path%>
 	</p>

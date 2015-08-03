@@ -33,7 +33,7 @@ class AdminparamsController < ApplicationController
   end
 
   def edit
-     if current_user.is_admin!=1
+     if current_user.is_admin ==  0
         redirect_to root_url
       end
   end

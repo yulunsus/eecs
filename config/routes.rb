@@ -21,7 +21,7 @@ Rails.application.routes.draw do
  get "/uploads/:id", :controller => "course_pastexams", :action => "download"
  
  
- 
+get "users/hero" 
  
  
  # The priority is based upon order of creation: first created -> highest priority.

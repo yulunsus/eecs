@@ -11,7 +11,6 @@
     <th>Type</th>
     <th>Link</th>
     <th>Publish date</th>
-    <th>Download times</th>
     <th>Delete</th>
   </tr>
   
@@ -28,8 +27,8 @@
           </th>
           <th><%= link_to "Download file", "/uploads/#{pastexam.id}" %></th>
           <th><%= pastexam.created_at.to_date %></th>
-          <th><%= pastexam.download_time %></th> 
-          <%if pastexam.user == current_user || current_user.is_admin == 1%>
+          
+          <%if pastexam.user == current_user || current_user.is_admin>0%>
             <th><%= link_to 'destroy', course_pastexam_path(@course, pastexam),
 	                            :method => :delete , data: { confirm: 'Are you sure?' }%></th>
           <%else%>

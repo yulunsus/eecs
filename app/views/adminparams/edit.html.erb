@@ -1,4 +1,4 @@
-<% if current_user.is_admin == 1 %>
+<% if current_user.is_admin > 0 %>
 <%= form_for @adminparam, :url => adminparams_path(@adminparam), :method=> :patch do |f| %>
     <p>
     <%= f.label :point_get_feedback, "Point get when uploading a feedback" %>

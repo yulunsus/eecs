@@ -26,7 +26,7 @@
 
           <th><%= feedback.updated_at.to_date %></th>
           <th><%= feedback.visit_time %></th>
-          <% if current_user == feedback.user || current_user.is_admin==1 %>
+          <% if current_user == feedback.user || current_user.is_admin>0 %>
 	    <th><%= link_to 'edit', edit_course_feedback_path(@course, feedback) %></th>
 	    <th><%= link_to 'delete', course_feedback_path(@course, feedback),
 	                              :method => :delete , data: { confirm: 'Are you sure?' }%></th>

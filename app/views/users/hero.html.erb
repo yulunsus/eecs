@@ -1,11 +1,15 @@
 <ul>
 <% @users.each do |user| %>
   <li>
-      <%= user.maxrank %> 
+     <%= user.rank%>/<%= user.maxrank %> 
       <%=user.last_name%>
       <%=user.first_name%>
   
-    <%= link_to 'Show', :controller => 'users', :action => 'show',:id => user %>
-  </li>
+    <%=link_to 'Show', users_path(user) %>
+    <% if current_user.is_admin >0 %>
+	 <%= link_to "edit_profle" , edit_user_registration_path%>
+ 
+   <%end%>
+ </li>
 <% end %>
 </ul>

@@ -20,7 +20,7 @@
 	</tr>			
 	<% end %>
 </table>
-<% if user_signed_in? && current_user.is_admin == 1 %>
+<% if user_signed_in? && current_user.is_admin >0 %>
 			<p><%= link_to 'New camp_worker' , new_camp_worker_path%></p>
 <% end %>
 

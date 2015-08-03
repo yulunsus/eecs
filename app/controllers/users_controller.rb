@@ -6,11 +6,8 @@ class UsersController < ApplicationController
 	end
 	def show
 	 if params[:id]
-	   @user_show = User.find(params[:id])
+	   @user= User.find(params[:id])
          end
-	 #else
-           @user = current_user
-	 #end
 	end
  	def hero
    		@users=User.all.order("maxrank DESC")

@@ -93,3 +93,5 @@ gem 'autoprefixer-rails'
 
 gem 'thin'
 
+
+gem 'yaml_db'
