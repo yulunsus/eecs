@@ -93,3 +93,5 @@ gem 'autoprefixer-rails'
 
 gem 'thin'
 
+# Auto deployment
+gem 'capistrano'
