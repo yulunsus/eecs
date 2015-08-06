@@ -13,7 +13,7 @@
 <tr><td align="center" COLSPAN=3> <%= simple_format(@course.description) %></td></tr> 
 </table>
 <p>
-<%= link_to 'feedbacks', course_feedbacks_path(@course), :class => "btn btn-info", :method => :get %>
-<%= link_to 'past exams', course_pastexams_path(@course), :class => "btn btn-info", :method => :get %>
-<%= link_to 'Back to course index', courses_path, :class => "btn btn-info", :method => :get %>
+<%= link_to 'feedbacks', course_feedbacks_path(@course), :class => "btn btn-info" %>
+<%= link_to 'past exams', course_pastexams_path(@course), :class => "btn btn-info" %>
+<%= link_to 'Back to course index', courses_path, :class => "btn btn-info" %>
 </p>
