@@ -1,3 +1,4 @@
+<%= link_to 'back to feedback list', course_feedbacks_url(@course), :class => "btn btn-info", :method => :get %>
 <p>Course: <%= @course.name %> </p>
 <p>Instructor: <%= @course.instructor %> </p>
 <table width="100" style="word-break:break-all" class="table">
@@ -11,4 +12,4 @@
 <tr><th>Author</th>            <td><%= @feedback.user.last_name %> <%= @feedback.user.first_name %></td></tr>
 </table>
 
-<%= button_to 'back to feedback list', course_feedbacks_url(@course), :class => "btn btn-info", :method => :get %>
+

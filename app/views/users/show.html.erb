@@ -1,35 +1,26 @@
 <%if @user %>
-	<h1><%=@user.username %></h1>
-	<p>class_year <%= @user.class_year%> </p>
-	<p>first_name <%= @user.first_name%> </p>
-	<p>last_name <%= @user.last_name%> </p>
-	<p>nick_name <%= @user.nick_name%> </p>
-	<p>email <%= @user.email%> </p>
-	<p>rank <%= @user.rank %> / <%= @user.maxrank %></p>
-	<%if @user.is_admin >0 && @user.is_admin  >0%>
-		<p>Administractor YesQQ </p>
-	<% end %>
-        <p>Number of uploaded feedbacks <%= @user.feedbacks.count%> </p>
-        <p>Number of uploaded pastexams <%= @user.pastexams.count%> </p>
-	
+	<h1><%= @user.last_name %> <%= @user.first_name%></h1>
+	<table class="table">
+    	<tr><th>Class Year</th> <td><%= @user.class_year %></td></tr>
+    	<tr><th>Nick Name</th> <td><%= @user.nick_name %></td></tr>
+    	<tr><th>Email</th> <td><%= @user.email %></td></tr>
+    	<tr><th>Rank</th> <td><%= @user.rank %> / <%= @user.maxrank %></td></tr>
+	<tr><th>Number of uploaded feedbacks </th> <td><%= @user.feedbacks.count %></td></tr>
+	<tr><th>Number of uploaded pastexams </th> <td><%= @user.pastexams.count %></td></tr>
+	</table>
 <% else %>
-	<h1><%=current_user.username %></h1>
-	<p>class_year <%= current_user.class_year%> </p>
-	<p>first_name <%= current_user.first_name%> </p>
-	<p>last_name <%= current_user.last_name%> </p>
-	<p>nick_name <%= current_user.nick_name%> </p>
-	<p>email <%= current_user.email%> </p>
-	<p>rank <%= current_user.rank%> / <%= current_user.maxrank%></p>
-	<%if current_user.is_admin > 0%>
-		<p>Administractor YesAA </p>
-	<% end %>
-        <p>Number of uploaded feedbacks <%= current_user.feedbacks.count%> </p>
-        <p>Number of uploaded pastexams <%= current_user.pastexams.count%> </p>	
-
+	<h1><%= current_user.last_name %> <%= current_user.first_name%></h1>
+	<table class="table">
+    	<tr><th>Class Year</th> <td><%= current_user.class_year %></td></tr>
+    	<tr><th>Nick Name</th> <td><%= current_user.nick_name %></td></tr>
+    	<tr><th>Email</th> <td><%= current_user.email %></td></tr>
+    	<tr><th>Rank</th> <td><%= current_user.rank %> / <%= current_user.maxrank %></td></tr>
+	<tr><th>Number of uploaded feedbacks </th> <td><%= current_user.feedbacks.count %></td></tr>
+	<tr><th>Number of uploaded pastexams </th> <td><%= current_user.pastexams.count %></td></tr>
+	</table>
 <%end%>
 <% if @user == current_user || !@user%> 
 	<p>
-	  <%= link_to "edit_profle" , edit_user_registration_path%>
-	</p>
+	  <%= link_to "edit_profle", edit_user_registration_path, :class => "btn btn-info", :method => :get%>
 <% end %>
-<p><%= link_to :back_to_home ,root_url%></p>
+<%= link_to :back_to_home, root_url, :class => "btn btn-info", :method => :get %></p>

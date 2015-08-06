@@ -1,8 +1,19 @@
-<li>Name:        <%= @course.name %></li>
-<li>Instructor:  <%= @course.instructor %></li>
-<li>Grade:       <%= @grade %></li>
-<li>Description: <%= simple_format(@course.description) %></li>
-<li>Average rating: <%= format("%.2f",@average_rate).to_f   %></li>
-<p><%= link_to 'feedbacks', course_feedbacks_path(@course) %></p>
-<p><%= link_to 'past exams', course_pastexams_path(@course) %></p>
-<p><%= link_to 'Back to course index', courses_path %></p>
+<%= @course.name %></li>
+<table style="word-break:break-all" class="table table-bordered">
+<tr>
+<td align=center width="33%"> <strong> Instructor </strong></td>  
+<td align=center width="33%"> <strong> Grade </strong></td>       
+<td align=center width="33%"> <strong> Average rating </strong></td> 
+</tr>
+<tr>
+<td align="center" width="33%"><%= @course.instructor %></td>
+<td align="center" width="33%"><%= @grade %></td>
+<td align="center" width="33%"><%= format("%.2f",@average_rate).to_f   %></td>
+<tr><td align="center" COLSPAN=3> <strong> Description </strong></td></tr> 
+<tr><td align="center" COLSPAN=3> <%= simple_format(@course.description) %></td></tr> 
+</table>
+<p>
+<%= link_to 'feedbacks', course_feedbacks_path(@course), :class => "btn btn-info", :method => :get %>
+<%= link_to 'past exams', course_pastexams_path(@course), :class => "btn btn-info", :method => :get %>
+<%= link_to 'Back to course index', courses_path, :class => "btn btn-info", :method => :get %>
+</p>

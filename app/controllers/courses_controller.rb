@@ -5,7 +5,11 @@ class CoursesController < ApplicationController
 	
   def index
     @year_list= ["","freshman","sophomore","junior and senior","graduate","language","general"]
-    @courses = Course.all.order('grade')
+    if params[:keyword]
+        @courses = Course.where( [ "name like ? OR instructor like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ] ).order('grade')
+    else
+        @courses = Course.all.order('grade')
+    end
   end
 
   def new

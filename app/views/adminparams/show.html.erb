@@ -1,8 +1,21 @@
-
-<li>Point get when uploading a feedback:        <%= @adminparam.point_get_feedback %></li>
-<li>Point get when uploading a pastexam:        <%= @adminparam.point_get_pastexam %></li>
-<li>Point needed when browsing feedbacks:        <%= @adminparam.point_need_feedback %></li>
-<li>Point needed when downloading a pastexam:        <%= @adminparam.point_need_pastexam %></li>
+<table class="table table-hover">
+<tr>
+<th>Point get when uploading a feedback</th>
+<td><%= @adminparam.point_get_feedback %></td>
+</tr>
+<tr>
+<th>Point get when uploading a pastexam</th>
+<td><%= @adminparam.point_get_pastexam %></td>
+</tr>
+<tr>
+<th>Point needed when browsing feedbacks</th>
+<td><%= @adminparam.point_need_feedback %></td>
+</tr>
+<tr>
+<th>Point needed when downloading a pastexam</th>
+<td><%= @adminparam.point_need_pastexam %></td>
+</tr>
+</table>
 <% if current_user.is_admin >0 %>
-<%= link_to "edit" , edit_adminparams_path(@adminparam)%>
+<%= link_to "edit" , edit_adminparams_path(@adminparam), :class => "btn btn-info"%>
 <% end %>
