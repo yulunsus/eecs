@@ -1,7 +1,14 @@
 <p>
-<%= link_to 'new feedback', new_course_feedback_path(@course), :class => "btn btn-info", :method => :get %>
+<%= link_to 'Back to root', root_url, :class => "btn btn-info" %>
+<%= link_to 'Back to course index', courses_path, :class => "btn btn-info" %>
 <%= link_to 'back to course', course_path(@course), :class => "btn btn-info", :method => :get%>
 </p>
+
+<p>
+<%= link_to 'new feedback', new_course_feedback_path(@course), :class => "btn btn-primary", :method => :get %>
+
+</p>
+
 <ul>
 <table class="table table-hover">
   <tr>
