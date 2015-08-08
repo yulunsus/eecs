@@ -95,3 +95,5 @@ gem 'thin'
 
 
 gem 'yaml_db'
+
+gem "rails-i18n"

@@ -1,8 +1,7 @@
 <ul>
-
+<%= paginate @users %>
 <table class="table table-hover">
   <tr>
-    <th>Order</th>
     <th>rank/max_rank</th>
     <th>class ear</th>
     <th>name</th>
@@ -16,7 +15,6 @@
 
 <% @users.each_with_index do |user,index| %>
     <tr>
-    <td><%=  index+1 %></td>
     <td><%= user.rank %> / <%= user.maxrank %></td>
     <td><%= user.class_year %></td> 
     <td><%= user.last_name %> <%= user.first_name %></td>
