@@ -4,12 +4,8 @@
 <%= link_to 'back to course', course_path(@course), :class => "btn btn-info", :method => :get%>
 </p>
 
-<p>
-<%= link_to 'new feedback', new_course_feedback_path(@course), :class => "btn btn-primary", :method => :get %>
+<h1><%= @course.name %> <%= @course.instructor %></h1>
 
-</p>
-
-<ul>
 <table class="table table-hover">
   <tr>
     <th>Year</th>
@@ -50,5 +46,9 @@
 	
 <% end %>
 </table>
-</ul>
+<%= paginate @feedbacks %>
+
+<p>
+<%= link_to 'new feedback', new_course_feedback_path(@course), :class => "btn btn-primary", :method => :get %>
+</p>
 

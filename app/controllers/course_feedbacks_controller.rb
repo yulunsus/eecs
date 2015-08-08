@@ -5,7 +5,7 @@ class CourseFeedbacksController < ApplicationController
   before_action :find_adminparam
 
   def index 
-    @feedbacks= @course.feedbacks.order("year")
+    @feedbacks= @course.feedbacks.order("year").page(params[:page]).per(10)
   end
 
   def show

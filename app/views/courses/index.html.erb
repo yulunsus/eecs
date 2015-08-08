@@ -48,7 +48,7 @@
     
     <td><%= course.feedbacks.count %> </td>
     <td><%= course.pastexams.count %> </td>
-    <% if @user.is_admin  >0  %>
+    <% if @user.is_admin  > 0  %>
       <th><%= link_to 'Edit', edit_course_path(course)%></th>
       <th><%= link_to 'Delete',course_path(course), :method => :delete, data: { confirm: 'Are you sure?' } %></th>
     <%end %>

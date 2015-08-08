@@ -18,5 +18,5 @@
     </p>
     <%= f.submit "Update" %>
 <% end %>
-<%= link_to "back" , :controller=>'adminparams', :action=> 'show', :id=> @adminparam%>
+<%= button_to "back" ,{ :controller=>'adminparams', :action=> 'show', :id=> @adminparam }, :method => 'get'%>
 <% end %>

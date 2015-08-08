@@ -5,7 +5,7 @@ class CoursePastexamsController < ApplicationController
 
   def index
     @type_list= ["mid","final","quiz","hw","prj","others"]
-    @pastexams = @course.pastexams.order("year")
+    @pastexams = @course.pastexams.order("year").page(params[:page]).per(10)
     
   end
   

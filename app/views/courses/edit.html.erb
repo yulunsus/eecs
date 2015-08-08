@@ -18,4 +18,4 @@
     <%= f.submit "Update" %>
 <% end %>
 
-<p><%= link_to 'Back to index', :controller => 'courses', :action => 'index' %></p>
+<p><%= button_to 'Back to index',{ :controller => 'courses', :action => 'index'}, :method => 'get' %></p>

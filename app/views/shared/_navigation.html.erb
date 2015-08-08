@@ -5,7 +5,7 @@
 			<li> <%= link_to "Home" , root_url%></li>
 				<% if user_signed_in?%>
 					<li><%= link_to "Users" , users_hero_path%></li>
-					<li><%= link_to "User Profile" , users_path%></li>
+					<li><%= link_to "#{current_user.nick_name} ( #{current_user.rank} / #{current_user.maxrank} )" , users_path%></li>
 					
 					<li> <%= link_to "Rank Policies" ,adminparams_path%></li>
 					<%if current_user.is_admin > 0%>

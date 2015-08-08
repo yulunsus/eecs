@@ -2,13 +2,9 @@
 <%= link_to 'Back to root', root_url, :class => "btn btn-info" %>
 <%= link_to 'Back to course index', courses_path, :class => "btn btn-info" %>
 <%= link_to 'back to course', course_path(@course), :class => "btn btn-info", :method => :get%>
-<p>
-<%= link_to 'new pastexam', new_course_pastexam_path(@course), :class => "btn btn-primary", :method => :get %>
-</p>
-<p>Name:        <%= @course.name %>
-<p>Instructor:  <%= @course.instructor %>
 
-<ul>
+<h1><%= @course.name %> <%= @course.instructor %></h1>
+
 
 <table width="1" style="word-break:break-all" class="table table-hover">
   <tr>
@@ -48,5 +44,8 @@
    <% end %>
    </table>
 
-</ul>
+<%= paginate @pastexams %>
+<p>
+<%= link_to 'new pastexam', new_course_pastexam_path(@course), :class => "btn btn-primary", :method => :get %>
+</p>
 
