@@ -19,3 +19,10 @@
 # Ignore sensible data
 /config/secrets.yml
 /config/database.yml
+
+# Ignore pastexam files
+/pastexam
+
+# Ignore assets and uploaded files
+/public/assets
+/public/uploads
