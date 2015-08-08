@@ -4,11 +4,17 @@ class CoursesController < ApplicationController
   before_action :set_user 
 	
   def index
+    @button_style = ["","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link"]
     @year_list= ["","freshman","sophomore","junior and senior","graduate","language","general"]
     if params[:keyword]
         @courses = Course.where( [ "name like ? OR instructor like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ] ).order('grade')
+	@result = "#{@courses.count} results matching keyword ' #{params[:keyword]} '"
+    elsif params[:grade]
+        @courses = Course.where(:grade => params[:grade])
+        @button_style[params[:grade].to_i] = "btn btn-info"
     else
-        @courses = Course.all.order('grade')
+        @courses = Course.where(:grade => 1).order('grade')
+        @button_style[1] = "btn btn-info"
     end
   end
 
