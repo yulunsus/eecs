@@ -11,7 +11,11 @@ class UsersController < ApplicationController
 	end
 
  	def hero
-   		@users=User.where([ "is_admin <= ?", 1]).order("maxrank DESC").page(params[:page]).per(10)
+          if params[:keyword]
+            @users = User.where([ "is_admin <= ?", 1]).where( [ "first_name like ? OR nick_name like ? OR last_name like ? OR class_year like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%","%#{params[:keyword]}%","%#{params[:keyword]}%" ] ).page(params[:page]).per(10)
+          else
+            @users = User.where([ "is_admin <= ?", 1]).order('maxrank DESC').page(params[:page]).per(10)
+          end
 	end
 
         def assign

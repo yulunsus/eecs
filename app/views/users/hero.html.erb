@@ -1,5 +1,16 @@
-<ul>
-<%= paginate @users %>
+<p>
+<%= t("Search Name or Nickname or Class year") %>
+</p>
+<p>
+<%= form_tag users_hero_path, :method => :get do %>
+  <%= text_field_tag "keyword" %>
+  <%= submit_tag t("Search") %>
+
+<% end %>
+
+</p>
+
+
 <table class="table table-hover">
   <tr>
     <th><%= t('Rank') + '/' + t('Max_rank') %></th>
@@ -26,4 +37,6 @@
  </tr>
 <% end %>
 </table>
-</ul>
+
+<%= paginate @users %>
+
