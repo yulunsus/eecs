@@ -1,21 +1,21 @@
 <p>
-<%= link_to 'Back to root', root_url, :class => "btn btn-info" %>
-<%= link_to 'Back to course index', courses_path, :class => "btn btn-info" %>
-<%= link_to 'back to course', course_path(@course), :class => "btn btn-info", :method => :get%>
-<%= link_to 'back to feedback list', course_feedbacks_url(@course), :class => "btn btn-info", :method => :get %>
+<%= link_to t('Back to Home'), root_url, :class => "btn btn-info" %>
+<%= link_to t('Back to Course Index'), courses_path, :class => "btn btn-info" %>
+<%= link_to t('Back to Course'), course_path(@course), :class => "btn btn-info", :method => :get%>
+<%= link_to t('Back to Feedback Index'), course_feedbacks_url(@course), :class => "btn btn-info", :method => :get %>
 </p>
 
-<table width="100" style="word-break:break-all" class="table">
-<tr><th>Course</th>            <td><%= @course.name %></td></tr>
-<tr><th>Instructor</th>        <td><%= @course.instructor %></td></tr>
-<tr><th>Year</th>              <td><%= @feedback.year %></td></tr>
-<tr><th>Content</th>           <td><%= simple_format(@feedback.content) %> </td></tr>
-<tr><th>Lecture way</th>       <td><%= simple_format(@feedback.lecture_way) %> </td></tr>
-<tr><th>Test and homework</th> <td><%= simple_format(@feedback.test_homework) %> </td></tr>
-<tr><th>Partitioning</th>      <td><%= simple_format(@feedback.partitioning) %> </td></tr>
-<tr><th>Other</th>             <td><%= simple_format(@feedback.other) %> </td></tr>
-<tr><th>Rating</th>            <td><%= @feedback.rating %> </td></tr>
-<tr><th>Author</th>            <td><%= @feedback.user.last_name %> <%= @feedback.user.first_name %></td></tr>
+<table style="word-break:break-all" class="table">
+<tr><th width="33%"><%= t('Course Name') %></th>            <td><%= @course.name %></td></tr>
+<tr><th width="33%"><%= t('Instructor') %></th>        <td><%= @course.instructor %></td></tr>
+<tr><th width="33%"><%= t('Year') %></th>              <td><%= @feedback.year %></td></tr>
+<tr><th width="33%"><%= t('Content') %></th>           <td><%= simple_format(@feedback.content) %> </td></tr>
+<tr><th width="33%"><%= t('Lecture way') %></th>       <td><%= simple_format(@feedback.lecture_way) %> </td></tr>
+<tr><th width="33%"><%= t('Test and homework') %></th> <td><%= simple_format(@feedback.test_homework) %> </td></tr>
+<tr><th width="33%"><%= t('Partitioning') %></th>      <td><%= simple_format(@feedback.partitioning) %> </td></tr>
+<tr><th width="33%"><%= t('Other') %></th>             <td><%= simple_format(@feedback.other) %> </td></tr>
+<tr><th width="33%"><%= t('Rating') %></th>            <td><%= @feedback.rating %> </td></tr>
+<tr><th width="33%"><%= t('Author') %></th>            <td><%= @feedback.user.last_name %> <%= @feedback.user.first_name %></td></tr>
 </table>
 
 

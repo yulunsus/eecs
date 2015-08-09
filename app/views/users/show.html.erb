@@ -1,35 +1,35 @@
 <%if @user %>
 	<h1><%= @user.last_name %> <%= @user.first_name%></h1>
 	<table class="table" style="word-break:break-all">
-    	<tr><th align=center width="33%">Class Year</th> <td align=center><%= @user.class_year %></td></tr>
-    	<tr><th align=center width="33%">Nick Name</th> <td align=center><%= @user.nick_name %></td></tr>
+    	<tr><th align=center width="33%"><%= t('Class Year') %></th> <td align=center><%= @user.class_year %></td></tr>
+    	<tr><th align=center width="33%"><%= t('Nick name') %></th> <td align=center><%= @user.nick_name %></td></tr>
     	<tr><th align=center width="33%">Email</th> <td align=center><%= @user.email %></td></tr>
-    	<tr><th align=center width="33%">Rank</th> <td align=center><%= @user.rank %> / <%= @user.maxrank %></td></tr>
-        <tr><th align=center width="33%">Description</th> <td align=center><%= @user.description %></td></tr>
-	<tr><th align=center width="33%">Number of uploaded feedbacks </th> <td align=center><%= @user.feedbacks.count %></td></tr>
-	<tr><th align=center width="33%">Number of uploaded pastexams </th> <td align=center><%= @user.pastexams.count %></td></tr>
+    	<tr><th align=center width="33%"><%= t('Rank') %></th> <td align=center><%= @user.rank %> / <%= @user.maxrank %></td></tr>
+        <tr><th align=center width="33%"><%= t('Description') %></th> <td align=center><%= @user.description %></td></tr>
+	<tr><th align=center width="33%"><%= t('Number of uploaded feedbacks') %></th> <td align=center><%= @user.feedbacks.count %></td></tr>
+	<tr><th align=center width="33%"><%= t('Number of uploaded pastexams') %> </th> <td align=center><%= @user.pastexams.count %></td></tr>
 	</table>
 <% else %>
 	<h1><%= current_user.last_name %> <%= current_user.first_name%></h1>
 	<table class="table" style="word-break:break-all">
-    	<tr><th align=center width="33%">Class Year</th> <td><%= current_user.class_year %></td></tr>
-    	<tr><th align=center width="33%">Nick Name</th> <td><%= current_user.nick_name %></td></tr>
+    	<tr><th align=center width="33%"><%= t('Class Year') %></th> <td><%= current_user.class_year %></td></tr>
+    	<tr><th align=center width="33%"><%= t('Nick name') %></th> <td><%= current_user.nick_name %></td></tr>
     	<tr><th align=center width="33%">Email</th> <td><%= current_user.email %></td></tr>
-    	<tr><th align=center width="33%">Rank</th> <td><%= current_user.rank %> / <%= current_user.maxrank %></td></tr>
-        <tr><th align=center width="33%">Description</th> <td><%= current_user.description %></td></tr>
-	<tr><th align=center width="33%">Number of uploaded feedbacks </th> <td><%= current_user.feedbacks.count %></td></tr>
-	<tr><th align=center width="33%">Number of uploaded pastexams </th> <td><%= current_user.pastexams.count %></td></tr>
+    	<tr><th align=center width="33%"><%= t('Rank') %></th> <td><%= current_user.rank %> / <%= current_user.maxrank %></td></tr>
+        <tr><th align=center width="33%"><%= t('Description') %></th> <td><%= current_user.description %></td></tr>
+	<tr><th align=center width="33%"><%= t('Number of uploaded feedbacks') %> </th> <td><%= current_user.feedbacks.count %></td></tr>
+	<tr><th align=center width="33%"><%= t('Number of uploaded pastexams') %> </th> <td><%= current_user.pastexams.count %></td></tr>
         
 	</table>
 <%end%>
 
 <% if @user and current_user.is_admin == 2%>
   <% if @user.is_admin == 0 %>
-    <p><%= link_to  'Assign as Admin',{ :controller => 'users', :action => 'assign', :id => @user.id}, :class => "btn btn-warning" %>
-     <%= link_to  'Assign as Normal User',{ :controller => 'users', :action => 'unassign', :id => @user.id}, :class => "btn btn-warning disabled" %></p>
+    <p><%= link_to  t('Assign as Admin'),{ :controller => 'users', :action => 'assign', :id => @user.id}, :class => "btn btn-warning" %>
+     <%= link_to  t('Assign as Normal User'),{ :controller => 'users', :action => 'unassign', :id => @user.id}, :class => "btn btn-warning disabled" %></p>
   <% elsif current_user.is_admin == 2 %>
-    <p><%= link_to  'Assign as Admin',{ :controller => 'users', :action => 'assign', :id => @user.id}, :class => "btn btn-warning disabled" %>
-    <%= link_to  'Assign as Normal User',{ :controller => 'users', :action => 'unassign', :id => @user.id}, :class => "btn btn-warning" %></p>
+    <p><%= link_to  t('Assign as Admin'),{ :controller => 'users', :action => 'assign', :id => @user.id}, :class => "btn btn-warning disabled" %>
+    <%= link_to  t('Assign as Normal User'),{ :controller => 'users', :action => 'unassign', :id => @user.id}, :class => "btn btn-warning" %></p>
   <%end%>
 <% end %>
 
@@ -37,6 +37,6 @@
 
 <% if @user == current_user || !@user || current_user.is_admin == 2%> 
 	<p>
-	  <%= link_to "edit_profle", edit_user_registration_path, :class => "btn btn-info", :method => :get%>
+	  <%= link_to t("Edit"), edit_user_registration_path, :class => "btn btn-info", :method => :get%>
 <% end %>
-<%= link_to :back_to_home, root_url, :class => "btn btn-info", :method => :get %></p>
+<%= link_to t('Back to Home'), root_url, :class => "btn btn-info", :method => :get %></p>

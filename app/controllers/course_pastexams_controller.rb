@@ -4,7 +4,7 @@ class CoursePastexamsController < ApplicationController
   before_action :find_adminparam  
 
   def index
-    @type_list= ["mid","final","quiz","hw","prj","others"]
+    @type_list= ["Midterm","Final","Quiz","Homework","Project","others"]
     @pastexams = @course.pastexams.order("year").page(params[:page]).per(10)
     
   end
@@ -72,7 +72,7 @@ class CoursePastexamsController < ApplicationController
     
     @course = @pastexam.course
     if current_user.rank < @adminparam.point_need_pastexam
-        flash[:alert] = "Point not enough"
+        flash[:alert] = t("Points not enough")
 	redirect_to course_pastexams_path(@course)
     else
 	new_point = @pastexam.download_time+=1

@@ -1,0 +1,134 @@
+"zh-TW":
+  #NAVIGATION BAR
+  Home:  首頁
+  Hero:  排行榜
+  Rank Policy:  積分規則   
+  admin_mode:  管理員
+  Sign out:  登出
+  Sign in:  登入
+
+  #COURSE
+  #index
+  Back to Home: 回首頁
+  New Course: 新增課程
+  Search instructor or course name: 搜尋 「課程」 或 「教授」
+  Freshman: 大一
+  Sophomore: 大二
+  Junior and Senior: 大三大四
+  Graduate: 研究所
+  Foreign Language: 外語
+  General Knowledge: 通識
+  Grade: 年級
+  Course Name: 課程
+  Instructor: 教授
+  Feedbacks: 心得
+  Pastexams: 考古題
+  Edit: 編輯
+  Delete: 刪除
+  Are you sure: 確定刪除
+  
+  #new
+  Back to Course Index: 回課程清單
+  Create: 創建
+  Description: 描述
+  
+  #show
+  Average Rating: 平均評價
+  Feedbacks: 心得
+  Pastexams: 考古題
+  
+  #edit
+  Update: 更新
+
+  #FEEDBACK
+  #index
+  Back to Course: 回到課程
+  Year: 年度
+  Rating: 評價
+  Link: 連結
+  Publish date: 發布日期
+  View time: 觀看次數
+  show feedback: 前往
+  Points not enough: 積分不足
+  New Feedback:  新增心得
+
+  #show
+  Back to Feedback Index: 回心得清單
+  Content: 課程內容
+  Lecture way: 上課方式
+  Test and homework: 考試作業
+  Partitioning: 配分
+  Other: 其他補充
+  Author: 撰寫人
+  
+  #PASTEXAM
+  #index
+  Answer: 答案
+  Uploader: 上傳人
+  Type: 類型
+  New Pastexam: 新增考古題
+  yes: 有
+  no: 無
+  Download file: 下載連結
+
+  #new
+  Exam Type: 類型
+  Midterm: 期中考
+  Final: 期末考
+  Quiz: 小考
+  Homework: 作業
+  Project: 專題
+  others: 其他
+  File: 檔案
+  Has Answer: 有無答案
+  Which time: 哪一次
+  Description(max 15 words): 描述(最多15字)
+  Back to Pastexam Index: 回考古題清單
+
+  #USER
+  #hero
+  Rank:  目前積分
+  Max_rank: 最大積分
+  Class Year: 系級
+  Name: 名字
+  Nick name: 暱稱
+
+  #show
+  Number of uploaded feedbacks: 撰寫心得數量
+  Number of uploaded pastexams: 上傳考古題數量
+  Assign as Normal User:  指派為一般使用者
+  Assign as Admin: 指派為管理員
+  
+  #edit
+  Username: 帳號
+  First name: 名
+  Last name: 姓
+  Nick name: 暱稱
+  New Password: 新密碼
+  Confirm your new password: 確認新密碼
+  leave blank if you don't want to change it:  如果不需更改密碼，則空白
+  we need your current password to confirm your changes: 輸入目前密碼以確認身分 
+  Current password: 目前密碼
+  Back: 返回
+  
+  #new
+  Sign up HERE: 註冊頁面
+  Confirm your password: 確認密碼
+  Password: 密碼
+  Sign up: 註冊
+  characters minimum: 個字最多
+  
+  #log in 
+  Log in: 登入 
+  Forgot your password: 忘記密碼
+  Didn't receive confirmation instructions: 沒收到確認信
+  Didn't receive unlock instructions: 沒收到更改密碼信
+  Account: 帳號
+  Please login: 登入頁面
+  Point get when uploading a feedback: 上傳一份心得可以得到
+  Point get when uploading a pastexam: 上傳一份考古題可以得到
+  Point needed when browsing feedbacks:  想要瀏覽心得需要至少
+  Point needed when downloading a pastexam:  下載一份考古題需要消耗
+
+
+

@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
 	
   def index
     @button_style = ["","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link"]
-    @year_list= ["","freshman","sophomore","junior and senior","graduate","language","general"]
+    @year_list= ["","Freshman","Sophomore","Junior and Senior","Graduate","Foreign Language","General Knowledge"]
     if params[:keyword]
         @courses = Course.where( [ "name like ? OR instructor like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ] ).order('grade')
 	@result = "#{@courses.count} results matching keyword ' #{params[:keyword]} '"
@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
   
   def show
     #@course = Course.find(params[:id])
-    grade_selector=['','freshman','sophomore','junior and senior','graduate','foreign language','general knowledge']
+    grade_selector=['','Freshman','Sophomore','Junior and Senior','Graduate','Foreign Language','General Knowledge']
     @average_rate = 0
     if not @course.feedbacks.count == 0 
         @average_rate = @course.feedbacks.average(:rating)

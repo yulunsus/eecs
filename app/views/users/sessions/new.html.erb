@@ -1,13 +1,13 @@
-<h2>Please login </h2>
+<h2><%= t('Please login') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :login , "Account" %><br />
+    <%= f.label :login , t("Account") %><br />
     <%= f.text_field :login, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password ,t('Password')%><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
@@ -19,7 +19,7 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit t("Log in") %>
   </div>
 <% end %>
 

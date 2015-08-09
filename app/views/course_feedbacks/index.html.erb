@@ -1,21 +1,21 @@
 <p>
-<%= link_to 'Back to root', root_url, :class => "btn btn-info" %>
-<%= link_to 'Back to course index', courses_path, :class => "btn btn-info" %>
-<%= link_to 'back to course', course_path(@course), :class => "btn btn-info", :method => :get%>
+<%= link_to t('Back to Home'), root_url, :class => "btn btn-info" %>
+<%= link_to t('Back to Course Index'), courses_path, :class => "btn btn-info" %>
+<%= link_to t('Back to Course'), course_path(@course), :class => "btn btn-info", :method => :get%>
 </p>
 
 <h1><%= @course.name %> <%= @course.instructor %></h1>
 
 <table class="table table-hover">
   <tr>
-    <th>Year</th>
-    <th>Rating</th>
-    <th>Uploader</th>
-    <th>Link</th>
-    <th>Publish date</th>
-    <th>View time</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th><%= t('Year') %></th>
+    <th><%= t('Rating') %></th>
+    <th><%= t('Author') %></th>
+    <th><%= t('Link') %></th>
+    <th><%= t('Publish date') %></th>
+    <th><%= t('View time') %></th>
+    <th><%= t('Edit') %></th>
+    <th><%= t('Delete') %></th>
   </tr>
 <% @feedbacks.each do |feedback| %>
 	  <tr>
@@ -26,17 +26,17 @@
           <th><%= link_to "#{feedback.user.nick_name}", :controller => 'users', :action => 'show',:id => feedback.user %></th>
 
           <% if current_user.rank >= @adminparam.point_need_feedback || current_user == feedback.user || current_user.is_admin==1 %>
-	    <th><%= link_to 'show', course_feedback_path(@course, feedback) %></th>
+	    <th><%= link_to t('show feedback'), course_feedback_path(@course, feedback) %></th>
           <%else%>
-            <th>points not enough</th>
+            <th><%= t('Points not enough') %></th>
           <%end%>
 
           <th><%= feedback.updated_at.to_date %></th>
           <th><%= feedback.visit_time %></th>
           <% if current_user == feedback.user || current_user.is_admin>0 %>
-	    <th><%= link_to 'edit', edit_course_feedback_path(@course, feedback) %></th>
-	    <th><%= link_to 'delete', course_feedback_path(@course, feedback),
-	                              :method => :delete , data: { confirm: 'Are you sure?' }%></th>
+	    <th><%= link_to t('Edit'), edit_course_feedback_path(@course, feedback) %></th>
+	    <th><%= link_to t('Delete'), course_feedback_path(@course, feedback),
+	                              :method => :delete , data: { confirm: t('Are you sure') }%></th>
           <%else%>
             <th></th>
             <th></th>
@@ -49,6 +49,6 @@
 <%= paginate @feedbacks %>
 
 <p>
-<%= link_to 'new feedback', new_course_feedback_path(@course), :class => "btn btn-primary", :method => :get %>
+<%= link_to t('New Feedback'), new_course_feedback_path(@course), :class => "btn btn-primary", :method => :get %>
 </p>
 

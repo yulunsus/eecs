@@ -1,23 +1,23 @@
 <p>
-<%= link_to 'Back to root', root_url, :class => "btn btn-info" %>
-<%= link_to 'Back to course index', courses_path, :class => "btn btn-info" %>
+<%= link_to t('Back to Home'), root_url, :class => "btn btn-info" %>
+<%= link_to t('Back to Course Index'), courses_path, :class => "btn btn-info" %>
 </p>
 
 <h1><%= @course.name %></h1>
 <table style="word-break:break-all" class="table table-bordered">
 <tr>
-<td align=center width="33%"> <strong> Instructor </strong></td>  
-<td align=center width="33%"> <strong> Grade </strong></td>       
-<td align=center width="33%"> <strong> Average rating </strong></td> 
+<td align=center width="33%"> <strong><%= t("Instructor") %></strong></td>  
+<td align=center width="33%"> <strong><%= t("Grade") %></strong></td>       
+<td align=center width="33%"> <strong><%= t("Average Rating") %></strong></td> 
 </tr>
 <tr>
 <td align="center" width="33%"><%= @course.instructor %></td>
-<td align="center" width="33%"><%= @grade %></td>
+<td align="center" width="33%"><%= t(@grade) %></td>
 <td align="center" width="33%"><%= format("%.2f",@average_rate).to_f   %></td>
-<tr><td align="center" COLSPAN=3> <strong> Description </strong></td></tr> 
+<tr><td align="center" COLSPAN=3> <strong><%= t("Description") %></strong></td></tr> 
 <tr><td align="center" COLSPAN=3> <%= simple_format(@course.description) %></td></tr> 
 </table>
 <p>
-<%= link_to 'feedbacks', course_feedbacks_path(@course), :class => "btn btn-primary" %>
-<%= link_to 'past exams', course_pastexams_path(@course), :class => "btn btn-primary" %>
+<%= link_to t('Feedbacks'), course_feedbacks_path(@course), :class => "btn btn-primary", :style => 'width: 33%' %>
+<%= link_to t('Pastexams'), course_pastexams_path(@course), :class => "btn btn-primary", :style => 'width: 33%'  %>
 </p>

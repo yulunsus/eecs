@@ -1,15 +1,15 @@
 <p>
-  <%= link_to 'back to root', root_url, :class => "btn btn-info", :method => :get %>
+  <%= link_to t('Back to Home'), root_url, :class => "btn btn-info", :method => :get %>
 </p>
 
 <p>
-  <%= link_to 'New Course', new_course_path, :class => "btn btn-primary"%>
+  <%= link_to t('New Course'), new_course_path, :class => "btn btn-primary"%>
 </p>
 
 <p>
 <%= form_tag courses_path, :method => :get do %>
   <%= text_field_tag "keyword" %>
-  <%= submit_tag "Search instructor or course name" %>
+  <%= submit_tag t("Search instructor or course name") %>
 <% if @result %>
 <%= @result %>
 <%end%>
@@ -18,39 +18,39 @@
 </p>
 
 <p>
-  <%= link_to 'freshman', {:controller=> 'courses', :action => 'index', :grade => 1}, :class => @button_style[1] %>
-  <%= link_to 'sophomore', {:controller=> 'courses', :action => 'index', :grade => 2}, :class => @button_style[2] %>
-  <%= link_to 'junior and senior', {:controller=> 'courses', :action => 'index', :grade => 3}, :class => @button_style[3] %>
-  <%= link_to 'graduate', {:controller=> 'courses', :action => 'index', :grade => 4}, :class => @button_style[4] %>
-  <%= link_to 'foreign language', {:controller=> 'courses', :action => 'index', :grade => 5}, :class => @button_style[5] %>
-  <%= link_to 'general knowledge', {:controller=> 'courses', :action => 'index', :grade => 6}, :class => @button_style[6] %>
+  <%= link_to t('Freshman'), {:controller=> 'courses', :action => 'index', :grade => 1}, :class => @button_style[1], :style => 'width: 16%' %>
+  <%= link_to t('Sophomore'), {:controller=> 'courses', :action => 'index', :grade => 2}, :class => @button_style[2], :style => 'width: 16.66%' %>
+  <%= link_to t('Junior and Senior'), {:controller=> 'courses', :action => 'index', :grade => 3}, :class => @button_style[3], :style => 'width: 16%' %>
+  <%= link_to t('Graduate'), {:controller=> 'courses', :action => 'index', :grade => 4}, :class => @button_style[4], :style => 'width: 16%' %>
+  <%= link_to t('Foreign Language'), {:controller=> 'courses', :action => 'index', :grade => 5}, :class => @button_style[5], :style => 'width: 16%' %>
+  <%= link_to t('General Knowledge'), {:controller=> 'courses', :action => 'index', :grade => 6}, :class => @button_style[6], :style => 'width: 16%'%>
 </p>
 
 <ul>
 <table class="table table-hover">
   <tr>  
-    <th>Grade</th>
-    <th>Course Name</th>
-    <th>Instructor</th>
+    <th><%= t("Grade") %></th>
+    <th><%= t("Course Name") %></th>
+    <th><%= t("Instructor") %></th>
 
-    <th>Feedbacks</th>
-    <th>Pastexams</th>
+    <th><%= t("Feedbacks") %></th>
+    <th><%= t("Pastexams") %></th>
     <%if current_user.is_admin >0%>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th><%= t("Edit") %></th>
+      <th><%= t("Delete") %></th>
     <%end%>
   </tr>
 <% @courses.each do |course| %>
   <tr>
-    <td><%= @year_list[course.grade] %></td>
+    <td><%= t(@year_list[course.grade]) %></td>
     <td><%=link_to "#{course.name}" , course_path(course)%></td> 
     <td><%=course.instructor%></td>
     
     <td><%= course.feedbacks.count %> </td>
     <td><%= course.pastexams.count %> </td>
     <% if @user.is_admin  > 0  %>
-      <th><%= link_to 'Edit', edit_course_path(course)%></th>
-      <th><%= link_to 'Delete',course_path(course), :method => :delete, data: { confirm: 'Are you sure?' } %></th>
+      <th><%= link_to t('Edit'), edit_course_path(course)%></th>
+      <th><%= link_to t('Delete'),course_path(course), :method => :delete, data: { confirm: t('Are you sure') } %></th>
     <%end %>
   </tr>
 <% end %>

@@ -2,13 +2,13 @@
 <%= paginate @users %>
 <table class="table table-hover">
   <tr>
-    <th>rank/max_rank</th>
-    <th>class ear</th>
-    <th>name</th>
-    <th>nick name</th>
-    <th>Link</th>
+    <th><%= t('Rank') + '/' + t('Max_rank') %></th>
+    <th><%= t('Class Year') %></th>
+    <th><%= t('Name') %></th>
+    <th><%= t('Nick name') %></th>
+    <th><%= t('Link') %></th>
     <% if current_user.is_admin == 2  %> 
-        <th> Edit </th>
+        <th><%= t('Edit') %></th>
     <% end %>
     
   </tr>
@@ -19,9 +19,9 @@
     <td><%= user.class_year %></td> 
     <td><%= user.last_name %> <%= user.first_name %></td>
     <td><%= user.nick_name %></td>
-    <td><%=link_to 'Show', :controller => 'users', :action => 'show', :id => user.id %></td>
+    <td><%=link_to t('Link'), :controller => 'users', :action => 'show', :id => user.id %></td>
     <% if current_user.is_admin == 2 %>
-	 <td><%= link_to "edit_profle" , edit_user_registration_path %></td>
+	 <td><%= link_to t("Edit") , edit_user_registration_path %></td>
    <%end%>
  </tr>
 <% end %>
