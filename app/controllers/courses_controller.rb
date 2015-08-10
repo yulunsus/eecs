@@ -7,13 +7,13 @@ class CoursesController < ApplicationController
     @button_style = ["","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link"]
     @year_list= ["","Freshman","Sophomore","Junior and Senior","Graduate","Foreign Language","General Knowledge"]
     if params[:keyword] and not params[:keyword] == ''
-        @courses = Course.where( [ "name like ? OR instructor like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ] ).order('grade')
+        @courses = Course.where( [ "name like ? OR instructor like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ] ).order('grade').page(params[:page]).per(1000)
 	@result = "#{@courses.count} results matching keyword ' #{params[:keyword]} '"
     elsif params[:grade]
-        @courses = Course.where(:grade => params[:grade]).order('name')
+        @courses = Course.where(:grade => params[:grade]).order('name').page(params[:page]).per(10)
         @button_style[params[:grade].to_i] = "btn btn-info"
     else
-        @courses = Course.where(:grade => 1).order('name')
+        @courses = Course.where(:grade => 1).order('name').page(params[:page]).per(10)
         @button_style[1] = "btn btn-info"
     end
   end
