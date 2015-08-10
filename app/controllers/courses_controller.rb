@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   def index
     @button_style = ["","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link"]
     @year_list= ["","Freshman","Sophomore","Junior and Senior","Graduate","Foreign Language","General Knowledge"]
-    if params[:keyword]
+    if params[:keyword] and not params[:keyword] == ''
         @courses = Course.where( [ "name like ? OR instructor like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ] ).order('grade')
 	@result = "#{@courses.count} results matching keyword ' #{params[:keyword]} '"
     elsif params[:grade]
