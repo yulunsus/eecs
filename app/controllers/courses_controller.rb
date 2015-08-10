@@ -10,10 +10,10 @@ class CoursesController < ApplicationController
         @courses = Course.where( [ "name like ? OR instructor like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ] ).order('grade')
 	@result = "#{@courses.count} results matching keyword ' #{params[:keyword]} '"
     elsif params[:grade]
-        @courses = Course.where(:grade => params[:grade])
+        @courses = Course.where(:grade => params[:grade]).order('name')
         @button_style[params[:grade].to_i] = "btn btn-info"
     else
-        @courses = Course.where(:grade => 1).order('grade')
+        @courses = Course.where(:grade => 1).order('name')
         @button_style[1] = "btn btn-info"
     end
   end
