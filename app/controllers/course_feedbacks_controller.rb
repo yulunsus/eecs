@@ -3,6 +3,7 @@ class CourseFeedbacksController < ApplicationController
   before_action :find_course
   before_action :find_user
   before_action :find_adminparam
+  before_action :user_confirm
 
   def index 
     @feedbacks= @course.feedbacks.order("year").page(params[:page]).per(10)
@@ -78,5 +79,14 @@ class CourseFeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback).permit(:content,:year,:rating,:lecture_way,:partitioning,:test_homework,:other)
+  end
+  
+  def user_confirm
+     @course = Course.find(params[:course_id])
+     if current_user.is_admin < 0
+         flash[:alert] = t("Your account has not been approved by the administrator")
+         redirect_to course_url(@course)
+     end
+       
   end
 end

@@ -2,6 +2,7 @@ class CoursePastexamsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_course,:except => [:download]
   before_action :find_adminparam  
+  before_action :user_confirm
 
   def index
     @type_list= ["Midterm","Final","Quiz","Homework","Project","others"]
@@ -116,6 +117,15 @@ class CoursePastexamsController < ApplicationController
     type_list= ["mid","final","quiz","hw","prj","others"]
     path = "#{Rails.root}/pastexam/#{year_list[course.grade]}/#{course.name}/#{course.instructor}/#{truename}"
     return path
+  end
+
+  def user_confirm
+     @course = Course.find(params[:course_id])
+     if current_user.is_admin < 0
+         flash[:alert] = t("Your account has not been approved by the administrator")
+         redirect_to course_url(@course)
+     end
+       
   end
 
 end

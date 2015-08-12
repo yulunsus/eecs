@@ -32,5 +32,20 @@ class UsersController < ApplicationController
            redirect_to :action => :show, :id => @user.id
         end
   
+        def confirm
+           @user = User.find(params[:id])
+           @user.is_admin = 0
+           @user.save
+           redirect_to :action => :hero
+        end
+
+        def add_point
+           @user = User.find(params[:id])
+           @user.rank += params[:add_point].to_i
+           @user.maxrank += params[:add_point].to_i
+           @user.save
+           redirect_to :action => :show, :id => @user.id
+        end
+  
 
 end

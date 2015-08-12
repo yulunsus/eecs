@@ -27,10 +27,18 @@
   <% if @user.is_admin == 0 %>
     <p><%= link_to  t('Assign as Admin'),{ :controller => 'users', :action => 'assign', :id => @user.id}, :class => "btn btn-warning" %>
      <%= link_to  t('Assign as Normal User'),{ :controller => 'users', :action => 'unassign', :id => @user.id}, :class => "btn btn-warning disabled" %></p>
-  <% elsif current_user.is_admin == 2 %>
+  <% elsif @user.is_admin == 1 %>
     <p><%= link_to  t('Assign as Admin'),{ :controller => 'users', :action => 'assign', :id => @user.id}, :class => "btn btn-warning disabled" %>
     <%= link_to  t('Assign as Normal User'),{ :controller => 'users', :action => 'unassign', :id => @user.id}, :class => "btn btn-warning" %></p>
   <%end%>
+
+  <p>
+  <%= form_tag :controller => :users, :action => :add_point, :id => @user.id, :method => :get do %>
+  <%= number_field_tag :add_point%>
+  <%= submit_tag t("Add") %>
+  </p>
+<% end %>
+
 <% end %>
 
 

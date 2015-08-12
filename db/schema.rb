@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803142244) do
+ActiveRecord::Schema.define(version: 20150812133144) do
 
   create_table "adminparams", force: :cascade do |t|
     t.integer  "point_get_feedback"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20150803142244) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "class_year",             limit: 3
-    t.integer  "is_admin",                         default: 0
+    t.integer  "is_admin",                         default: -1
     t.integer  "rank",                             default: 0
     t.text     "description"
     t.string   "first_name"
